@@ -5,14 +5,18 @@ using UnityEngine;
 public class Main_sc : MonoBehaviour
 {
     public static Dictionary<string, bool> inventory;
+    public static Dictionary<string, string> keys;
+
     // Start is called before the first frame update
     void Start()
     {
         inventory = new Dictionary<string, bool>();
+        keys = new Dictionary<string, string>();
        //room1
         inventory["batteries"] = true;
         inventory["blueliquid"] = false;
         inventory["key1"] = false;
+        keys["code1"] = "root";
        //room2
     }
 
@@ -20,5 +24,8 @@ public class Main_sc : MonoBehaviour
     void Update()
     {
         
+    }
+    public static void SetKey(string name, string value) {
+        keys[name] = value;
     }
 }
