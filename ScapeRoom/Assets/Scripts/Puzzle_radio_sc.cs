@@ -24,7 +24,6 @@ public class Puzzle_radio_sc : Puzzle_sc
         playCode = false;
         batteries = false;
         dial = 98;
-        Interact(); // se han puesto las pilas
 
     }
 
@@ -89,13 +88,6 @@ public class Puzzle_radio_sc : Puzzle_sc
         //activar audio
         batteries = true;
         GenerateCode();
-    }
-    public override void Interact()
-    {
-        if (Main_sc.inventory["batteries"]) Activate();
-        else {
-            //decir que no hay pilas puestas
-        }
     }
     public override void OnFail()
     {

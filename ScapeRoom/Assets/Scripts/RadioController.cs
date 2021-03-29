@@ -44,7 +44,7 @@ public class RadioController : MonoBehaviour
     void MoveButton()
     {
         float rotX = Input.GetAxis("Mouse Y") * 10 * Mathf.Deg2Rad;
-        button.transform.RotateAround(Vector3.forward, rotX);
+        button.transform.Rotate(Vector3.forward, rotX);
         if ((rotX > 0) && (marker.transform.position.y < 0.525))
         {
             frequency -= 0.125f;
