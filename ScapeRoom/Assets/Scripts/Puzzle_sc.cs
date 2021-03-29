@@ -8,4 +8,5 @@ public abstract class Puzzle_sc : MonoBehaviour
     public abstract void OnResolve();
     public abstract void OnFail();
     public abstract void Deactivate();
+    public abstract void Interact();
 }

@@ -47,18 +47,18 @@ public class RadioController : MonoBehaviour
         button.transform.RotateAround(Vector3.forward, rotX);
         if ((rotX > 0) && (marker.transform.position.y < 0.525))
         {
-            frequency -= 0.025f;
+            frequency -= 0.125f;
             marker.transform.Translate(-Vector3.down * Time.deltaTime * markerSpeed);
         }
         else if ((rotX < 0) && (marker.transform.position.y > 0.25))
         {
-            frequency += 0.025f;
+            frequency += 0.125f;
             marker.transform.Translate(Vector3.down * Time.deltaTime * markerSpeed);
         }
         if (((int)frequency % 2) == 0)
         {
-            //Llamar a CR
-            Debug.Log("Dial Changed");
+            GetComponent<Puzzle_radio_sc>().SelectDial((int)frequency);
+            //Debug.Log("Dial Changed");
         }
         else
         {
