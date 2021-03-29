@@ -344,16 +344,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7adeb9f99a8f7148b796ccdcb41a9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a0: {fileID: 0}
-  a1: {fileID: 0}
-  a2: {fileID: 0}
-  a3: {fileID: 0}
-  a4: {fileID: 0}
-  a5: {fileID: 0}
-  a6: {fileID: 0}
-  a7: {fileID: 0}
-  a8: {fileID: 0}
-  a9: {fileID: 0}
+  clipList:
+  - {fileID: 8300000, guid: 5c1f5b0e14cd2ca4cab1e4817f47ca3d, type: 3}
+  - {fileID: 8300000, guid: 7f0862d303173ca42bf10351ff2fc0fe, type: 3}
+  - {fileID: 8300000, guid: 3ae83305f698c4a4695f0f81dfde3f31, type: 3}
+  - {fileID: 8300000, guid: 7de160f3a5b9dfc4397172fc27f611c3, type: 3}
+  - {fileID: 8300000, guid: 797aff9ef62b92143b46b5df5d4ba7e4, type: 3}
+  - {fileID: 8300000, guid: 568982c923978594181547ac5ae0e43d, type: 3}
+  - {fileID: 8300000, guid: ae75ae21d3d4ae1428c789505cde3c97, type: 3}
+  - {fileID: 8300000, guid: f874f9d70d64b004e8039b16fe64c831, type: 3}
+  - {fileID: 8300000, guid: 1985ab02f8742384ca7b0f63aaa87718, type: 3}
+  - {fileID: 8300000, guid: 2a8dcb4676d484149be8370b72f47bf7, type: 3}
 --- !u!82 &359752748
 AudioSource:
   m_ObjectHideFlags: 0
