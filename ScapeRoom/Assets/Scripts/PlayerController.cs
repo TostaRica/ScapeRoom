@@ -47,16 +47,6 @@ public class PlayerController : MonoBehaviour
 
     bool ObjectHasClicked()
     {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.collider != null)
-            {
-                hit.collider.enabled = false;
-                return true;
-            }
-        }
-        return false;
+        return true;
     }
 }
