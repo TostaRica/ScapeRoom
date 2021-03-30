@@ -1761,7 +1761,7 @@ PrefabInstance:
     - target: {fileID: 3329308977187738457, guid: 4057b3cb1d167f546aca4f271fdaf8a5,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Interactive
       objectReference: {fileID: 0}
     - target: {fileID: 6274724410757620907, guid: 4057b3cb1d167f546aca4f271fdaf8a5,
         type: 3}
@@ -1771,6 +1771,16 @@ PrefabInstance:
     - target: {fileID: 6707542055503554459, guid: 4057b3cb1d167f546aca4f271fdaf8a5,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707542056728403240, guid: 4057b3cb1d167f546aca4f271fdaf8a5,
+        type: 3}
+      propertyPath: markerSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707542056728403242, guid: 4057b3cb1d167f546aca4f271fdaf8a5,
+        type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -2017,7 +2027,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1097344613}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1271291663
+--- !u!65 &1271291666
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2028,8 +2038,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 23.581821, y: 9.367336, z: 60.198326}
-  m_Center: {x: 6.841279, y: -49.56524, z: 29.419708}
+  m_Size: {x: 23.581821, y: 15.884511, z: 65.84392}
+  m_Center: {x: 6.8412795, y: -52.823875, z: 32.242554}
 --- !u!1 &1321747512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,6 +2363,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 26.18951, y: 60.41708, z: 88.36379}
   m_Center: {x: 4.4901223, y: 29.399204, z: -5.818108}
+--- !u!114 &1713457854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713457847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405f9b113340cd442b69eab6fa40b24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredObject: Battery
+  isPuzzle: 1
 --- !u!1 &1812874917
 GameObject:
   m_ObjectHideFlags: 0
