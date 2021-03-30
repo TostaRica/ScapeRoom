@@ -8,6 +8,7 @@ public class InspectRaycast : MonoBehaviour
 {
     [SerializeField] private readonly string selectableTag = "Selectable";
     [SerializeField] private readonly string collectableTag = "Collectable";
+    [SerializeField] private readonly string doorTag = "Door";
     [SerializeField] private GameObject hittedObject;
     [SerializeField] private GameObject inspected;
     [SerializeField] private float maxDistance = 5;
@@ -36,9 +37,9 @@ public class InspectRaycast : MonoBehaviour
         if (Physics.Raycast(transform.position, forward, out hit, maxDistance) && !onInspect)
         {
             collectable = hit.collider.gameObject.CompareTag(collectableTag);
-            if (collectable) 
-            { 
-                goCollectable = hit.collider.gameObject; 
+            if (collectable)
+            {
+                goCollectable = hit.collider.gameObject;
             }
 
             if (hit.collider.gameObject.CompareTag(selectableTag) || collectable)
@@ -48,7 +49,8 @@ public class InspectRaycast : MonoBehaviour
                 material.SetFloat("_OutlineThickness", 0.03f);
                 material.SetColor("_OutlineColor", outlineColor);
 
-                if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
                     inspected = hit.collider.gameObject;
                     inspected.GetComponent<Collider>().isTrigger = true;
                     originalPosition = hit.transform.position;
@@ -56,39 +58,47 @@ public class InspectRaycast : MonoBehaviour
                     onInspect = true;
                     depthOfField.active = true;
                     StartCoroutine(pickupItem());
-
                 }
-
             }
-        }
-        else
-        {
-            if (hittedObject != null)
+            else if (hit.collider.gameObject.CompareTag(doorTag))
             {
-                material.SetFloat("_OutlineThickness", 0.0f);
-                hittedObject = null;
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    //if i have the key()
+                    hit.collider.gameObject.GetComponent<Door>().isOpening = true;
+                }
+                if (Input.GetKeyUp(KeyCode.Mouse0))
+                {
+                    hit.collider.gameObject.GetComponent<Door>().isOpening = false;
+                }
             }
-        }
-
-        if (onInspect)
-        {
-            inspected.transform.position = Vector3.Lerp(inspected.transform.position, playerSocket.position, 0.2f);
-            Vector3 rotation = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 125f;
-            playerSocket.Rotate(rotation);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse1) && onInspect)
-        {
-           
-            if (collectable)
+            else
             {
-                Main_sc.SetInventoryItem(goCollectable.name, true);
-                goCollectable.SetActive(false);
+                if (hittedObject != null)
+                {
+                    material.SetFloat("_OutlineThickness", 0.0f);
+                    hittedObject = null;
+                }
             }
-            StartCoroutine(dropItem());
-            onInspect = false;
-        }
 
+            if (onInspect)
+            {
+                inspected.transform.position = Vector3.Lerp(inspected.transform.position, playerSocket.position, 0.2f);
+                Vector3 rotation = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 125f;
+                playerSocket.Rotate(rotation);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse1) && onInspect)
+            {
+                if (collectable)
+                {
+                    Main_sc.SetInventoryItem(goCollectable.name, true);
+                    goCollectable.SetActive(false);
+                }
+                StartCoroutine(dropItem());
+                onInspect = false;
+            }
+        }
     }
 
     IEnumerator pickupItem()
