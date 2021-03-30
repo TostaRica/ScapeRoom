@@ -4,7 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Selectable
+=======
+  - RightWall
+  - LeftWall
+  - Point
+>>>>>>> dev
   layers:
   - Default
   - TransparentFX
