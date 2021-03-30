@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Beat : MonoBehaviour
 {
-    public AudioSource audio;
+    public AudioSource m_audio;
 
     public float shortBeatTime = 0.5f;
     public float longShortTime = 1;
@@ -51,7 +51,7 @@ public class Beat : MonoBehaviour
         {
             if (!iChangeToBeating)
             {
-                audio.Play();
+                m_audio.Play();
                 iChangeToBeating = true;
             }
             currentRestTime -= Time.deltaTime;
@@ -59,7 +59,7 @@ public class Beat : MonoBehaviour
         }
         else
         {
-            audio.Stop();
+            m_audio.Stop();
             iChangeToBeating = false;
             isBeating = false;
             currentRestTime = restTime;
