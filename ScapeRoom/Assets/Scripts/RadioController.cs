@@ -43,16 +43,16 @@ public class RadioController : MonoBehaviour
 
     void MoveButton()
     {
-        float rotX = Input.GetAxis("Mouse Y") * 10 * Mathf.Deg2Rad;
-        button.transform.Rotate(Vector3.forward, rotX);
+        float rotX = Input.GetAxis("Mouse Y") * 200 * Mathf.Deg2Rad;
+        button.transform.Rotate(-Vector3.right, rotX);
         if ((rotX > 0) && (marker.transform.position.y < 0.525))
         {
-            frequency -= 0.125f;
+            frequency -= 0.015f;
             marker.transform.Translate(-Vector3.down * Time.deltaTime * markerSpeed);
         }
         else if ((rotX < 0) && (marker.transform.position.y > 0.25))
         {
-            frequency += 0.125f;
+            frequency += 0.015f;
             marker.transform.Translate(Vector3.down * Time.deltaTime * markerSpeed);
         }
         if (((int)frequency % 2) == 0)
@@ -62,7 +62,7 @@ public class RadioController : MonoBehaviour
         }
         else
         {
-            Debug.Log(frequency);
+            //Debug.Log(frequency);
         }
     }
 }

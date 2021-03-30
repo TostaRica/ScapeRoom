@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Puzzle_radio_sc : Puzzle_sc
 {
-   
-
     [SerializeField] private AudioClip[] clipList;
     AudioSource audioSource;
     int currentClip;
@@ -14,6 +12,9 @@ public class Puzzle_radio_sc : Puzzle_sc
     float dial;
     private int[] code;
     private char[] iCode;
+
+    public AudioSource rFrequency;
+    public AudioClip[] audios;
 
     private void Start()
     {
@@ -24,20 +25,21 @@ public class Puzzle_radio_sc : Puzzle_sc
         playCode = false;
         batteries = false;
         dial = 98;
-
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (batteries && playCode && !audioSource.isPlaying) {
+        if (batteries && playCode && !audioSource.isPlaying)
+        {
             audioSource.clip = clipList[currentClip];
             audioSource.Play();
             ++currentClip;
-            if (currentClip == code.Length) {
-               // audioSource.clip = clipList[currentClip]; sonido blanco 
-               // audioSource.Play();
-                currentClip = 0; 
+            if (currentClip == code.Length)
+            {
+                // audioSource.clip = clipList[currentClip]; sonido blanco
+                // audioSource.Play();
+                currentClip = 0;
             }
         }
     }
@@ -71,14 +73,19 @@ public class Puzzle_radio_sc : Puzzle_sc
         return iCode;
     }
 
-    public void SelectDial(int currentDial) {
-
+    public void SelectDial(int currentDial)
+    {
+        Debug.Log(currentDial);
         if (currentDial != dial)
         {
+            int i = (int)Random.Range(0.0f, 5.0f);
+            rFrequency.clip = audios[i];
+            rFrequency.Play();
             // play random sound
             playCode = false;
         }
-        else {
+        else
+        {
             playCode = true;
         }
     }
