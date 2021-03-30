@@ -604,7 +604,7 @@ PrefabInstance:
     - target: {fileID: 3174432258592267743, guid: 30aa2b8650c38e449ace45f4258b4946,
         type: 3}
       propertyPath: m_TagString
-      value: Selectable
+      value: Collectable
       objectReference: {fileID: 0}
     - target: {fileID: 8465013584243543846, guid: 30aa2b8650c38e449ace45f4258b4946,
         type: 3}
@@ -1000,6 +1000,7 @@ GameObject:
   - component: {fileID: 865576912}
   - component: {fileID: 865576915}
   - component: {fileID: 865576916}
+  - component: {fileID: 865576917}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1157,6 +1158,18 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &865576917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865576911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e203d9248417c4cb9d5695a16684a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &891404399
 GameObject:
   m_ObjectHideFlags: 0
