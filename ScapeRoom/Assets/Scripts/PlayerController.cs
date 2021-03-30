@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject gameManager;
-
-    public GameObject camera;
+    
     private Rigidbody m_rigidbody;
 
     public float yaw;
