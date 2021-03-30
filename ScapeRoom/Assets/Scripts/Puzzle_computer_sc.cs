@@ -8,7 +8,7 @@ public class Puzzle_computer_sc : Puzzle_sc
     [SerializeField] private GameObject strangerText;
     [SerializeField] private GameObject chatPanel;
     List<Message> messageList = new List<Message>();
-    int i = 0;
+
     // Start is called before the first frame update
     void Start()
     {
