@@ -21,7 +21,7 @@ public class Door : MonoBehaviour
 
     void OpenDoor()
     {
-        float rotX = Input.GetAxis("Mouse Y") * 200 * Mathf.Deg2Rad;
-        this.transform.Rotate(Vector3.right, rotX);
+        float rotX = Input.GetAxis("Mouse X") * 10 * Mathf.Deg2Rad;
+        this.transform.Rotate(Vector3.up, rotX);
     }
 }

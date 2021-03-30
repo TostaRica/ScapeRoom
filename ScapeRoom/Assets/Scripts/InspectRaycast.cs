@@ -8,7 +8,6 @@ public class InspectRaycast : MonoBehaviour
 {
     [SerializeField] private readonly string selectableTag = "Selectable";
     [SerializeField] private readonly string collectableTag = "Collectable";
-    [SerializeField] private readonly string doorTag = "Door";
     [SerializeField] private GameObject hittedObject;
     [SerializeField] private GameObject inspected;
     [SerializeField] private float maxDistance = 5;
@@ -58,18 +57,6 @@ public class InspectRaycast : MonoBehaviour
                     onInspect = true;
                     depthOfField.active = true;
                     StartCoroutine(pickupItem());
-                }
-            }
-            else if (hit.collider.gameObject.CompareTag(doorTag))
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    //if i have the key()
-                    hit.collider.gameObject.GetComponent<Door>().isOpening = true;
-                }
-                if (Input.GetKeyUp(KeyCode.Mouse0))
-                {
-                    hit.collider.gameObject.GetComponent<Door>().isOpening = false;
                 }
             }
             else
