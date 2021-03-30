@@ -96,13 +96,13 @@ public class Puzzle_computer_sc : Puzzle_sc
     {
         treeRoot = new Decision();
         treeRoot.code = "";
-        treeRoot.goodAnswerd = "There are someone there?";
+        treeRoot.goodAnswerd = "Someone there?";
         treeRoot.badAnswerd = "";
         currentDecision = treeRoot;
 
         Decision dec0 = new Decision();
-        dec0.code = "1";
-        dec0.goodAnswerd = "You are the fucking master of the creation";
+        dec0.code = Main_sc.GetKey("code1");
+        dec0.goodAnswerd = "Try this code somewhere: 247";
         dec0.badAnswerd = "badAnswerd";
         treeRoot.nextStep = dec0;
 
