@@ -35,7 +35,7 @@ public class Interactive_keyobject : MonoBehaviour
         }
     }
     //borrar en cuanto este hecha la parte de la interactuar
-    void tryInteract() 
+    public void tryInteract() 
     {
         if (Input.GetMouseButtonDown(0)) {
             Interact();

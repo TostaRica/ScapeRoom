@@ -25,7 +25,7 @@ public class Puzzle_computer_sc : Puzzle_sc
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             //SendMessageToChat("hey, who are you?", true);
             //SendMessageToChat("112", false);
