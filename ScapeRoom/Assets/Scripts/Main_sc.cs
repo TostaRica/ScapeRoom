@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Main_sc : MonoBehaviour
 {
-    public static Dictionary<string, bool> inventory;
-    public static Dictionary<string, string> keys;
+    private static Dictionary<string, bool> inventory;
+    private static Dictionary<string, string> keys;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +23,22 @@ public class Main_sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("hola");
     }
     public static void SetKey(string name, string value) {
         keys[name] = value;
     }
+    public static void SetInventoryItem(string name, bool value)
+    {
+        inventory[name] = value;
+    }
+    public static string GetKey(string name)
+    {
+        return keys[name];
+    }
+    public static bool GetInventoryItem(string name)
+    {
+       return inventory[name];
+    }
+
 }
