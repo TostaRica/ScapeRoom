@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject settingCanvas;
     public GameObject playerCanvas;
+
     // Start is called before the first frame update
     void Start()
     {

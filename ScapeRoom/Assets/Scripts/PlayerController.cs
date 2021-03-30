@@ -46,10 +46,6 @@ public class PlayerController : MonoBehaviour
                 //gameManager.GetComponent<GameManager>().GoToInspector();
                 return;
             }
-            else
-            {
-                transform.Translate(Vector3.forward * Time.deltaTime * SpeedWalk);
-            }
         }
         if (Input.GetMouseButton(0))
         {
