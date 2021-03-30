@@ -1775,8 +1775,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6707542056728403240, guid: 4057b3cb1d167f546aca4f271fdaf8a5,
         type: 3}
+      propertyPath: fSpeed
+      value: 0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707542056728403240, guid: 4057b3cb1d167f546aca4f271fdaf8a5,
+        type: 3}
       propertyPath: markerSpeed
-      value: 1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6707542056728403242, guid: 4057b3cb1d167f546aca4f271fdaf8a5,
         type: 3}
