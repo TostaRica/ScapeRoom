@@ -8,6 +8,7 @@ public class RadioController : MonoBehaviour
     public GameObject button;
 
     public float frequency;
+    public float fSpeed;
     public float pitch;
     public float markerSpeed;
     private bool active;
@@ -21,7 +22,8 @@ public class RadioController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (active) { 
+        if (active)
+        {
             if (Input.GetMouseButton(0))
             {
                 if (ButtonHasClicked())
@@ -31,7 +33,8 @@ public class RadioController : MonoBehaviour
             }
         }
     }
-    public void SetActivate(bool _activate) {
+    public void SetActivate(bool _activate)
+    {
         active = _activate;
     }
     bool ButtonHasClicked()
@@ -53,14 +56,14 @@ public class RadioController : MonoBehaviour
     {
         float rotX = Input.GetAxis("Mouse Y") * 200 * Mathf.Deg2Rad;
         button.transform.Rotate(Vector3.right, rotX);
-        if ((rotX > 0) && (marker.transform.position.y < 0.525))
+        if ((rotX > 0) && (frequency > 93))
         {
-            frequency -= 0.015f;
+            frequency -= fSpeed;
             marker.transform.Translate(-Vector3.down * Time.deltaTime * markerSpeed);
         }
-        else if ((rotX < 0) && (marker.transform.position.y > 0.25))
+        else if ((rotX < 0) && (frequency < 103))
         {
-            frequency += 0.015f;
+            frequency += fSpeed;
             marker.transform.Translate(Vector3.down * Time.deltaTime * markerSpeed);
         }
         if (((int)frequency % 2) == 0)
@@ -70,7 +73,7 @@ public class RadioController : MonoBehaviour
         }
         else
         {
-            //Debug.Log(frequency);
+            Debug.Log(frequency);
         }
     }
 }
