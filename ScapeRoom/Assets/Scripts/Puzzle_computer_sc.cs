@@ -13,6 +13,7 @@ public class Puzzle_computer_sc : Puzzle_sc
     Decision treeRoot;
     Decision currentDecision;
     int i = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,8 @@ public class Puzzle_computer_sc : Puzzle_sc
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
             //SendMessageToChat("hey, who are you?", true);
             //SendMessageToChat("112", false);
             //SendMessageToChat("wtf?", true);
@@ -55,7 +57,8 @@ public class Puzzle_computer_sc : Puzzle_sc
         throw new System.NotImplementedException();
     }
 
-    public void SendMessageToChat(string text, bool stranger) {
+    public void SendMessageToChat(string text, bool stranger)
+    {
 
         Message newMessage = new Message();
         newMessage.text = text;
@@ -65,14 +68,15 @@ public class Puzzle_computer_sc : Puzzle_sc
         messageList.Add(newMessage);
 
     }
-    public void CheckDecision(string code) {
+    public void CheckDecision(string code)
+    {
         if (code != "")
         {
             SendMessageToChat(code, false);
             inputField.text = "";
         }
-        StartCoroutine(MakeDecision(2,code));
-        
+        StartCoroutine(MakeDecision(2, code));
+
     }
     IEnumerator MakeDecision(int seconds, string code)
     {
@@ -86,9 +90,10 @@ public class Puzzle_computer_sc : Puzzle_sc
         {
             SendMessageToChat(currentDecision.badAnswerd, true);
         }
-       
+
     }
-    public void InitFirstCodeDialog() {
+    public void InitFirstCodeDialog()
+    {
         treeRoot = new Decision();
         treeRoot.code = "";
         treeRoot.goodAnswerd = "There is someone there?";
@@ -107,15 +112,17 @@ public class Puzzle_computer_sc : Puzzle_sc
         dec1.badAnswerd = "badAnswerd";
         dec0.nextStep = dec1;
     }
-    
+
 
     [System.Serializable]
-    public class Message {
+    public class Message
+    {
         public string text;
         public Text textObject;
     }
     [System.Serializable]
-    public class Decision {
+    public class Decision
+    {
         public string code;
         public string goodAnswerd;
         public string badAnswerd;
