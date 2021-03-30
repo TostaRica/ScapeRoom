@@ -8,7 +8,7 @@ public class Puzzle_radio_sc : Puzzle_sc
     AudioSource audioSource;
     int currentClip;
     bool playCode;
-    bool batteries;
+    bool active;
     float dial;
     private int[] code;
     private char[] iCode;
@@ -23,14 +23,14 @@ public class Puzzle_radio_sc : Puzzle_sc
         audioSource = GetComponent<AudioSource>();
         currentClip = 0;
         playCode = false;
-        batteries = false;
+        active = false;
         dial = 98;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (batteries && playCode && !audioSource.isPlaying)
+        if (active && playCode && !audioSource.isPlaying)
         {
             audioSource.clip = clipList[currentClip];
             audioSource.Play();
@@ -75,26 +75,28 @@ public class Puzzle_radio_sc : Puzzle_sc
 
     public void SelectDial(int currentDial)
     {
-        Debug.Log(currentDial);
-        if (currentDial != dial)
-        {
-            int i = (int)Random.Range(0.0f, 5.0f);
-            rFrequency.clip = audios[i];
-            rFrequency.Play();
-            // play random sound
-            playCode = false;
-        }
-        else
-        {
-            playCode = true;
+        if (active) { 
+            if (currentDial != dial)
+            {
+                int i = (int)Random.Range(0.0f, 5.0f);
+                rFrequency.clip = audios[i];
+                rFrequency.Play();
+                // play random sound
+                playCode = false;
+            }
+            else
+            {
+                playCode = true;
+            }
         }
     }
 
     public override void Activate()
     {
         //activar audio
-        batteries = true;
+        active = true;
         GenerateCode();
+        GetComponent<RadioController>().SetActivate(true);
     }
     public override void OnFail()
     {

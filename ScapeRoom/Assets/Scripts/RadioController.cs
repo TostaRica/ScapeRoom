@@ -10,22 +10,29 @@ public class RadioController : MonoBehaviour
     public float frequency;
     public float pitch;
     public float markerSpeed;
+    private bool active;
     // Start is called before the first frame update
     void Start()
     {
         frequency = 93.0f;
+        active = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            if (ButtonHasClicked())
+        if (active) { 
+            if (Input.GetMouseButton(0))
             {
-                MoveButton();
+                if (ButtonHasClicked())
+                {
+                    MoveButton();
+                }
             }
         }
+    }
+    public void SetActivate(bool _activate) {
+        active = _activate;
     }
     bool ButtonHasClicked()
     {
@@ -35,6 +42,7 @@ public class RadioController : MonoBehaviour
         {
             if (hit.collider != null)
             {
+                GetComponent<Puzzle_radio_sc>().SelectDial(98);
                 return true;
             }
         }

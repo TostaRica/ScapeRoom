@@ -17,7 +17,6 @@ public class Interactive_keyobject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tryInteract();
     }
     void Interact() 
     {
@@ -37,7 +36,7 @@ public class Interactive_keyobject : MonoBehaviour
     //borrar en cuanto este hecha la parte de la interactuar
     public void tryInteract() 
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (!isUnlocked && Input.GetMouseButtonDown(0)) {
             Interact();
         }    
     }

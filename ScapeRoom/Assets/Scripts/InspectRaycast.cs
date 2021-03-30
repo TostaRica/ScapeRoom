@@ -80,7 +80,7 @@ public class InspectRaycast : MonoBehaviour
             if (goTag == GoTag.Interactive)
             {
                 Cursor.lockState = CursorLockMode.None;
-                //gameObject.GetComponent<Interactive_keyobject>().tryInteract();
+                inspected.GetComponent<Interactive_keyobject>().tryInteract();
             }
             else 
             {

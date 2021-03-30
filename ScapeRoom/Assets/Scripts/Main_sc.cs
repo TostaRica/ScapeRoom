@@ -13,7 +13,7 @@ public class Main_sc : MonoBehaviour
         inventory = new Dictionary<string, bool>();
         keys = new Dictionary<string, string>();
        //room1
-        inventory["batteries"] = true;
+        inventory["Battery"] = false;
         inventory["blueliquid"] = false;
         inventory["key1"] = false;
         keys["code1"] = "root";
@@ -23,7 +23,6 @@ public class Main_sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("hola");
     }
     public static void SetKey(string name, string value) {
         keys[name] = value;
