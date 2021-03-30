@@ -239,6 +239,7 @@ MonoBehaviour:
   strangerText: {fileID: 432010765513211903, guid: 648dc2fee04140f4daa3165f9f0a8062,
     type: 3}
   chatPanel: {fileID: 1142908611}
+  inputField: {fileID: 1933638671}
 --- !u!114 &548124372
 MonoBehaviour:
   m_ObjectHideFlags: 0
