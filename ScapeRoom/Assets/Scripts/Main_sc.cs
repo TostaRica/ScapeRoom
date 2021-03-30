@@ -16,7 +16,7 @@ public class Main_sc : MonoBehaviour
         inventory["Battery"] = false;
         inventory["blueliquid"] = false;
         inventory["key1"] = false;
-        keys["code1"] = "root";
+        keys["Code1"] = "root";
        //room2
     }
 

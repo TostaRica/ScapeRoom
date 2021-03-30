@@ -12,13 +12,14 @@ public class Puzzle_computer_sc : Puzzle_sc
     List<Message> messageList = new List<Message>();
     Decision treeRoot;
     Decision currentDecision;
-    int i = 0;
+    string code1;
 
     // Start is called before the first frame update
     void Start()
     {
         InitFirstCodeDialog();
         CheckDecision("");
+        code1 = "";
 
     }
 
@@ -33,6 +34,7 @@ public class Puzzle_computer_sc : Puzzle_sc
             //SendMessageToChat("091", false);
             //SendMessageToChat("oh, okay you are also locked in here right? ", true);
             //SendMessageToChat("1", false);
+            code1 = Main_sc.GetKey("code1");
             CheckDecision(inputField.text);
         }
     }
@@ -101,7 +103,7 @@ public class Puzzle_computer_sc : Puzzle_sc
         currentDecision = treeRoot;
 
         Decision dec0 = new Decision();
-        dec0.code = Main_sc.GetKey("code1");
+        dec0.code = code1;
         dec0.goodAnswerd = "Try this code somewhere: 247";
         dec0.badAnswerd = "badAnswerd";
         treeRoot.nextStep = dec0;

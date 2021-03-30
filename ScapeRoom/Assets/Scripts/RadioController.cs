@@ -45,7 +45,7 @@ public class RadioController : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                GetComponent<Puzzle_radio_sc>().SelectDial(98);
+                //GetComponent<Puzzle_radio_sc>().SelectDial(98);
                 return true;
             }
         }
