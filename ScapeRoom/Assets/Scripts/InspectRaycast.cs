@@ -7,6 +7,7 @@ using UnityEngine.Rendering.PostProcessing;
 public class InspectRaycast : MonoBehaviour
 {
     [SerializeField] private readonly string selectableTag = "Selectable";
+    [SerializeField] private readonly string collectableTag = "Collectable";
     [SerializeField] private GameObject hittedObject;
     [SerializeField] private GameObject inspected;
     [SerializeField] private float maxDistance = 5;
@@ -20,8 +21,8 @@ public class InspectRaycast : MonoBehaviour
     [SerializeField] private PostProcessVolume volume;
 
     [SerializeField] private DepthOfField depthOfField;
-
-
+    bool collectable = false;
+    GameObject goCollectable = null;
     private void Start()
     {
         volume.profile.TryGetSettings<DepthOfField>(out depthOfField);
@@ -32,10 +33,15 @@ public class InspectRaycast : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
-
         if (Physics.Raycast(transform.position, forward, out hit, maxDistance) && !onInspect)
         {
-            if (hit.collider.gameObject.CompareTag(selectableTag))
+            collectable = hit.collider.gameObject.CompareTag(collectableTag);
+            if (collectable) 
+            { 
+                goCollectable = hit.collider.gameObject; 
+            }
+
+            if (hit.collider.gameObject.CompareTag(selectableTag) || collectable)
             {
                 hittedObject = hit.collider.gameObject;
                 material = hittedObject.GetComponent<Renderer>().material;
@@ -50,6 +56,7 @@ public class InspectRaycast : MonoBehaviour
                     onInspect = true;
                     depthOfField.active = true;
                     StartCoroutine(pickupItem());
+
                 }
 
             }
@@ -72,6 +79,12 @@ public class InspectRaycast : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && onInspect)
         {
+           
+            if (collectable)
+            {
+                Main_sc.SetInventoryItem(goCollectable.name, true);
+                goCollectable.SetActive(false);
+            }
             StartCoroutine(dropItem());
             onInspect = false;
         }

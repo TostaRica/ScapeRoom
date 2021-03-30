@@ -21,7 +21,7 @@ public class Interactive_keyobject : MonoBehaviour
     }
     void Interact() 
     {
-        isUnlocked = Main_sc.inventory[requiredObject];
+        isUnlocked = Main_sc.GetInventoryItem(requiredObject);
         if (isUnlocked) {
             if (isPuzzle)
             {
