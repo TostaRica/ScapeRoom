@@ -30,7 +30,6 @@ public class KeyboardRay : MonoBehaviour
                         main.enabled = true;
                         GetComponent<Camera>().enabled = false;
                         playerController.ResumePlayerController();
-                        //InspectRaycast.setOnInspect(false);
                     }
                 }
             }
