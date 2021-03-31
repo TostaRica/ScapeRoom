@@ -19,22 +19,11 @@ public class Puzzle_computer_sc : Puzzle_sc
     {
         InitFirstCodeDialog();
         CheckDecision("");
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            //SendMessageToChat("hey, who are you?", true);
-            //SendMessageToChat("112", false);
-            //SendMessageToChat("wtf?", true);
-            //SendMessageToChat("091", false);
-            //SendMessageToChat("oh, okay you are also locked in here right? ", true);
-            //SendMessageToChat("1", false);
-            CheckDecision(inputField.text);
-        }
     }
 
     public override void Activate()
@@ -68,6 +57,7 @@ public class Puzzle_computer_sc : Puzzle_sc
         messageList.Add(newMessage);
 
     }
+
     public void CheckDecision(string code)
     {
         if (code != "")
@@ -78,6 +68,7 @@ public class Puzzle_computer_sc : Puzzle_sc
         StartCoroutine(MakeDecision(2, code));
 
     }
+
     IEnumerator MakeDecision(int seconds, string code)
     {
         yield return new WaitForSeconds(seconds);
@@ -92,6 +83,7 @@ public class Puzzle_computer_sc : Puzzle_sc
         }
 
     }
+
     public void InitFirstCodeDialog()
     {
         treeRoot = new Decision();
@@ -120,6 +112,7 @@ public class Puzzle_computer_sc : Puzzle_sc
         public string text;
         public Text textObject;
     }
+
     [System.Serializable]
     public class Decision
     {

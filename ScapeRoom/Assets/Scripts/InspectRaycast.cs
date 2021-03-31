@@ -46,6 +46,7 @@ public class InspectRaycast : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
+
         if (Physics.Raycast(transform.position, forward, out hit, maxDistance) && !onInspect)
         {
             goTag = GoTag.Null;
