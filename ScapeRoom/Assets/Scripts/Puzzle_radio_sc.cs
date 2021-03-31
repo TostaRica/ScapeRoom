@@ -53,25 +53,26 @@ public class Puzzle_radio_sc : Puzzle_sc
 
     private void GenerateCode()
     {
-        for (int i = code.Length - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            int temp = code[i];
-            code[i] = code[randomIndex];
-            code[randomIndex] = temp;
+        //for (int i = code.Length - 1; i > 0; i--)
+        //{
+        //    int randomIndex = Random.Range(0, i + 1);
+        //    int temp = code[i];
+        //    code[i] = code[randomIndex];
+        //    code[randomIndex] = temp;
 
-            AudioClip tempClip = clipList[i];
-            clipList[i] = clipList[randomIndex];
-            clipList[randomIndex] = tempClip;
-        }
+        //    AudioClip tempClip = clipList[i];
+        //    clipList[i] = clipList[randomIndex];
+        //    clipList[randomIndex] = tempClip;
+        //}
+        code = new int[] { 9, 4, 2, 3, 1, 5, 8, 7, 6, 0 };
+        //for (int i = 0; i < iCode.Length; ++i)
+        //{
+        //    iCode[i] = (char)(code[i] + '0');
+        //    //clipList[i] = audio de sonido distorsionado
+        //}
 
-        for (int i = 0; i < iCode.Length; ++i)
-        {
-            iCode[i] = (char)(code[i] + '0');
-            //clipList[i] = audio de sonido distorsionado
-        }
 
-        iCode[Random.Range(0, iCode.Length - 1)] = 'X';
+        //iCode[Random.Range(0, iCode.Length - 1)] = 'X';
         OnResolve();
     }
 

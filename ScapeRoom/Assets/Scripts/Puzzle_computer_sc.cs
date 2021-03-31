@@ -128,7 +128,7 @@ public class Puzzle_computer_sc : Puzzle_sc
        
         Decision dec3 = new Decision();
         dec3.script = "If you find a number tell me and I might find something useful. That can help us both get out of here.";
-        dec3.anwser = Main_sc.GetKey(codeRadio);
+        dec3.anwser = "9423158760";
         dec3.time = 5.0f;
 
         Decision dec4 = new Decision();
