@@ -5,32 +5,39 @@ using UnityEngine;
 public class Puzzle_radio_sc : Puzzle_sc
 {
     [SerializeField] private AudioClip[] clipList;
+    [SerializeField] private int[] code;
+    [SerializeField] private char[] iCode;
+
     AudioSource audioSource;
     int currentClip;
     bool playCode;
-    bool batteries;
+    bool active;
     float dial;
-    private int[] code;
-    private char[] iCode;
+    
 
     public AudioSource rFrequency;
     public AudioClip[] audios;
 
-    private void Start()
+    private void Awake()
     {
         code = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         iCode = new char[code.Length];
+        GenerateCode();
+    }
+
+    private void Start()
+    {
         audioSource = GetComponent<AudioSource>();
         currentClip = 0;
         playCode = false;
-        batteries = false;
+        active = false;
         dial = 98;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (batteries && playCode && !audioSource.isPlaying)
+        if (active && playCode && !audioSource.isPlaying)
         {
             audioSource.clip = clipList[currentClip];
             audioSource.Play();
@@ -46,25 +53,26 @@ public class Puzzle_radio_sc : Puzzle_sc
 
     private void GenerateCode()
     {
-        for (int i = code.Length - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            int temp = code[i];
-            code[i] = code[randomIndex];
-            code[randomIndex] = temp;
+        //for (int i = code.Length - 1; i > 0; i--)
+        //{
+        //    int randomIndex = Random.Range(0, i + 1);
+        //    int temp = code[i];
+        //    code[i] = code[randomIndex];
+        //    code[randomIndex] = temp;
 
-            AudioClip tempClip = clipList[i];
-            clipList[i] = clipList[randomIndex];
-            clipList[randomIndex] = tempClip;
-        }
+        //    AudioClip tempClip = clipList[i];
+        //    clipList[i] = clipList[randomIndex];
+        //    clipList[randomIndex] = tempClip;
+        //}
+        code = new int[] { 9, 4, 2, 3, 1, 5, 8, 7, 6, 0 };
+        //for (int i = 0; i < iCode.Length; ++i)
+        //{
+        //    iCode[i] = (char)(code[i] + '0');
+        //    //clipList[i] = audio de sonido distorsionado
+        //}
 
-        for (int i = 0; i < iCode.Length; ++i)
-        {
-            iCode[i] = (char)(code[i] + '0');
-            //clipList[i] = audio de sonido distorsionado
-        }
 
-        iCode[Random.Range(0, iCode.Length - 1)] = 'X';
+        //iCode[Random.Range(0, iCode.Length - 1)] = 'X';
         OnResolve();
     }
 
@@ -75,27 +83,29 @@ public class Puzzle_radio_sc : Puzzle_sc
 
     public void SelectDial(int currentDial)
     {
-        Debug.Log(currentDial);
-        if (currentDial != dial)
-        {
-            int i = (int)Random.Range(0.0f, 5.0f);
-            rFrequency.clip = audios[i];
-            rFrequency.Play();
-            // play random sound
-            playCode = false;
-        }
-        else
-        {
-            playCode = true;
+        if (active) { 
+            if (currentDial != dial)
+            {
+                int i = (int)Random.Range(0.0f, 5.0f);
+                rFrequency.clip = audios[i];
+                rFrequency.Play();
+                // play random sound
+                playCode = false;
+            }
+            else
+            {
+                playCode = true;
+            }
         }
     }
 
     public override void Activate()
     {
         //activar audio
-        batteries = true;
-        GenerateCode();
+        active = true;
+        GetComponent<RadioController>().SetActivate(true);
     }
+    
     public override void OnFail()
     {
         GenerateCode();
@@ -103,10 +113,18 @@ public class Puzzle_radio_sc : Puzzle_sc
 
     public override void OnResolve()
     {
-        Main_sc.SetKey("code1", string.Join(string.Empty, code));
+        Main_sc.SetKey(codeRadio, string.Join(string.Empty, code));
     }
+    
     public override void Deactivate()
     {
         playCode = false;
     }
+
+    public int[] GetCode()
+    {
+        return code;
+    }
+
+
 }

@@ -9,7 +9,7 @@ TagManager:
   - LeftWall
   - Point
   - Collectable
-  - Door
+  - Interactive
   layers:
   - Default
   - TransparentFX
