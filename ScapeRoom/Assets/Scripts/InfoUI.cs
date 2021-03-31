@@ -8,7 +8,6 @@ public class InfoUI : MonoBehaviour
     [SerializeField] private readonly string infoTag = "infoObject";
     [SerializeField] private float maxDistance = 5;
 
-    bool collectable = false;
     public Text infoText;
     // Start is called before the first frame update
     void Start()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyPadCode : MonoBehaviour
 {
     [SerializeField] private readonly string botonTag = "KeyButton";
-    [SerializeField] private float maxDistance = 5;
+    [SerializeField] private float maxDistance = 1.2f;
 
     bool collectable = false;
 
@@ -13,7 +13,7 @@ public class KeyPadCode : MonoBehaviour
     public int[] codeEnter = new int[4];
 
     public AudioClip[] clips;
-    public AudioSource audio;
+    public AudioSource m_audio;
     public int numeroAmount = 0;
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class KeyPadCode : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, maxDistance))
         {
             collectable = hit.collider.gameObject.CompareTag(botonTag);
             if (collectable)
@@ -49,22 +49,22 @@ public class KeyPadCode : MonoBehaviour
     {
         if (numeroAmount < 4)
         {
-            audio.clip = clips[2];
+            m_audio.clip = clips[2];
             codeEnter[numeroAmount] = n;
-            audio.Play();
+            m_audio.Play();
             numeroAmount++;
             if (numeroAmount == 4)
             {
                 if (CheckSolution())
                 {
-                    audio.clip = clips[1];
+                    m_audio.clip = clips[1];
                 }
                 else
                 {
-                    audio.clip = clips[0];
+                    m_audio.clip = clips[0];
                     numeroAmount = 0;
                 }
-                audio.Play();
+                m_audio.Play();
             }
         }
     }
