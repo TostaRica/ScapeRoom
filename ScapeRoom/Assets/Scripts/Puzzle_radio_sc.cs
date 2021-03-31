@@ -10,8 +10,8 @@ public class Puzzle_radio_sc : Puzzle_sc
     bool playCode;
     bool active;
     float dial;
-    private int[] code;
-    private char[] iCode;
+    [SerializeField] private int[] code;
+    [SerializeField] private char[] iCode;
 
     public AudioSource rFrequency;
     public AudioClip[] audios;
@@ -25,6 +25,7 @@ public class Puzzle_radio_sc : Puzzle_sc
         playCode = false;
         active = false;
         dial = 98;
+        GenerateCode();
     }
 
     // Update is called once per frame
@@ -95,7 +96,6 @@ public class Puzzle_radio_sc : Puzzle_sc
     {
         //activar audio
         active = true;
-        GenerateCode();
         GetComponent<RadioController>().SetActivate(true);
     }
     public override void OnFail()
@@ -105,7 +105,7 @@ public class Puzzle_radio_sc : Puzzle_sc
 
     public override void OnResolve()
     {
-        Main_sc.SetKey("code1", string.Join(string.Empty, code));
+        Main_sc.SetKey(code1, string.Join(string.Empty, code));
     }
     public override void Deactivate()
     {

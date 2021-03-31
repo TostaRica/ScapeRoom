@@ -49,7 +49,6 @@ public class RadioController : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                //GetComponent<Puzzle_radio_sc>().SelectDial(98);
                 return true;
             }
         }
@@ -73,11 +72,6 @@ public class RadioController : MonoBehaviour
         if (((int)frequency % 2) == 0)
         {
             GetComponent<Puzzle_radio_sc>().SelectDial((int)frequency);
-            //Debug.Log("Dial Changed");
-        }
-        else
-        {
-            Debug.Log(frequency);
         }
     }
 }
