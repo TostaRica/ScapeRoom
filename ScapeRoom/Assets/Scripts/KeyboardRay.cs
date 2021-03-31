@@ -9,12 +9,25 @@ public class KeyboardRay : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private InspectRaycast InspectRaycast;
 
+    public bool onInspect = false;
+
+    private void Start()
+    {
+        onInspect = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+
+        if (onInspect)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
             if (hit.collider.gameObject.tag == "KeyBoard")
@@ -22,10 +35,8 @@ public class KeyboardRay : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     if (hit.collider.gameObject.GetComponent<ClickKey_sc>().PressKey() == "Esc") {
-                        main.enabled = true;
-                        GetComponent<Camera>().enabled = false;
-                        playerController.ResumePlayerController();
-                        //InspectRaycast.setOnInspect(false);
+                        InspectRaycast.ReleaseInteractive();
+                        onInspect = false;
                     }
                 }
             }

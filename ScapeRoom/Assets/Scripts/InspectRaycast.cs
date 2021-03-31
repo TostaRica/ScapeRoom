@@ -26,6 +26,7 @@ public class InspectRaycast : MonoBehaviour
 
     private Camera mainCamera;
     private Camera secondCamera;
+    private bool onRelease = false;
 
     private enum GoTag
     {
@@ -47,7 +48,7 @@ public class InspectRaycast : MonoBehaviour
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
 
-        if (Physics.Raycast(transform.position, forward, out hit, maxDistance) && !onInspect)
+        if (!onInspect && !onRelease && Physics.Raycast(transform.position, forward, out hit, maxDistance))
         {
             goTag = GoTag.Null;
             switch (hit.collider.gameObject.tag)
@@ -104,7 +105,7 @@ public class InspectRaycast : MonoBehaviour
 
             if (onInspect)
             {
-                if (goTag == GoTag.Interactive)
+                if (goTag == GoTag.Interactive && inspected.name != "Computer")
                 {
                     Cursor.lockState = CursorLockMode.None;
                     if (inspected.GetComponent<Interactive_keyobject>() != null)
@@ -112,11 +113,20 @@ public class InspectRaycast : MonoBehaviour
                         inspected.GetComponent<Interactive_keyobject>().tryInteract();
                     }
                 }
-                else
+                else if(goTag == GoTag.Selectable || goTag == GoTag.Collectable)
                 {
                     inspected.transform.position = Vector3.Lerp(inspected.transform.position, playerSocket.position, 0.2f);
                     Vector3 rotation = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 125f;
                     playerSocket.Rotate(rotation);
+                }
+                else
+                {
+                    KeyboardRay keyboard = inspected.GetComponent<KeyboardRay>();
+
+                    if(keyboard != null)
+                    {
+                        keyboard.onInspect = true;
+                    }
                 }
             }
 
@@ -133,16 +143,28 @@ public class InspectRaycast : MonoBehaviour
                 {
                     StartCoroutine(dropItem());
                 }
-                else if (goTag == GoTag.Interactive)
-                {
-                    mainCamera.enabled = true;
-                    secondCamera.enabled = false;
-                    playerScript.ResumePlayerController();
-                }
                 Cursor.lockState = CursorLockMode.Locked;
                 onInspect = false;
             }
         }
+    }
+
+    public void ReleaseInteractive()
+    {
+        mainCamera.enabled = true;
+        secondCamera.enabled = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        onInspect = false;
+        onRelease = true;
+        StartCoroutine(ReleaseRay());
+    }
+
+    private IEnumerator ReleaseRay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerScript.ResumePlayerController();
+        onRelease = false;
+
     }
 
     private IEnumerator pickupItem()
