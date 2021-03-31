@@ -8,7 +8,7 @@ public class Locker : Puzzle_sc
     public GameObject[] spins;
     public bool hasSolved = false;
     public Animator solveAnimation;
-
+    public Animator openBox;
     public AudioSource audioSolved;
     // Start is called before the first frame update
     private void Start()
@@ -25,6 +25,7 @@ public class Locker : Puzzle_sc
     public override void OnResolve()
     {
         solveAnimation.SetBool("Solved", true);
+        openBox.SetBool("isSolved", true);
         hasSolved = true;
         audioSolved.Play();
         //solveAnimation.Play();

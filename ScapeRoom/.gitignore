@@ -58,3 +58,8 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+#Heavy Textures
+/[Aa]ssets/Assets/Decoration/Rubble Pieces Detailed Package 1.1/Textures/Nromal/Plasterboard Type 1 Normal.bmp
+
+/[Aa]ssets/Assets/Decoration/Rubble Pieces Detailed Package 1.1/Textures/Albedo/Plasterboard Type 1 Albedo.bmp
