@@ -5,28 +5,22 @@ using UnityEngine;
 public class Main_sc : MonoBehaviour
 {
 
-    public const string code1 = "Code1";
+    public const string codeRadio = "Code1";
 
-    private static Dictionary<string, bool> inventory;
-    private static Dictionary<string, string> keys;
+    private static Dictionary<string, bool> inventory = new Dictionary<string, bool>();
+    private static Dictionary<string, string> keys = new Dictionary<string, string>();
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        inventory = new Dictionary<string, bool>();
-        keys = new Dictionary<string, string>();
        //room1
         inventory["Battery"] = false;
         inventory["blueliquid"] = false;
         inventory["key1"] = false;
-        keys[code1] = "root";
+        keys[codeRadio] = "root";
        //room2
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    
     public static void SetKey(string name, string value) {
         keys[name] = value;
     }

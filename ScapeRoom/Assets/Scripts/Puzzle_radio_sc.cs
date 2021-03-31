@@ -5,27 +5,33 @@ using UnityEngine;
 public class Puzzle_radio_sc : Puzzle_sc
 {
     [SerializeField] private AudioClip[] clipList;
+    [SerializeField] private int[] code;
+    [SerializeField] private char[] iCode;
+
     AudioSource audioSource;
     int currentClip;
     bool playCode;
     bool active;
     float dial;
-    [SerializeField] private int[] code;
-    [SerializeField] private char[] iCode;
+    
 
     public AudioSource rFrequency;
     public AudioClip[] audios;
 
-    private void Start()
+    private void Awake()
     {
         code = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         iCode = new char[code.Length];
+        GenerateCode();
+    }
+
+    private void Start()
+    {
         audioSource = GetComponent<AudioSource>();
         currentClip = 0;
         playCode = false;
         active = false;
         dial = 98;
-        GenerateCode();
     }
 
     // Update is called once per frame
@@ -98,6 +104,7 @@ public class Puzzle_radio_sc : Puzzle_sc
         active = true;
         GetComponent<RadioController>().SetActivate(true);
     }
+    
     public override void OnFail()
     {
         GenerateCode();
@@ -105,10 +112,18 @@ public class Puzzle_radio_sc : Puzzle_sc
 
     public override void OnResolve()
     {
-        Main_sc.SetKey(code1, string.Join(string.Empty, code));
+        Main_sc.SetKey(codeRadio, string.Join(string.Empty, code));
     }
+    
     public override void Deactivate()
     {
         playCode = false;
     }
+
+    public int[] GetCode()
+    {
+        return code;
+    }
+
+
 }
