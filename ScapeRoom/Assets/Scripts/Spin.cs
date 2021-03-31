@@ -15,7 +15,7 @@ public class Spin : MonoBehaviour
     public bool isRight;
     public float speedRotation;
 
-    public AudioSource m_audio;
+    public AudioSource audio;
 
     public
     // Start is called before the first frame update
@@ -28,7 +28,10 @@ public class Spin : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ButtonHasClicked();
+            if (!isChanging)
+            {
+                ButtonHasClicked();
+            }
         }
         if (isChanging)
         {
@@ -46,12 +49,12 @@ public class Spin : MonoBehaviour
             {
                 if (hit.transform.gameObject == rightSize)
                 {
-                    GetComponent<AudioSource>().Play();
+                    audio.Play();
                     RotateSpin(true);
                 }
                 if (hit.transform.gameObject == leftSize)
                 {
-                    GetComponent<AudioSource>().Play();
+                    audio.Play();
                     RotateSpin(false);
                 }
                 return true;
@@ -64,28 +67,28 @@ public class Spin : MonoBehaviour
     {
         isChanging = true;
         currentTime = timeToChange;
-        if (toRight)
+        if (!toRight)
         {
-            isRight = true;
+            isRight = false;
             if (currentNumber == 9)
             {
                 currentNumber = 0;
             }
             else
             {
-                currentNumber++;
+                currentNumber--;
             }
         }
         else
         {
-            isRight = false;
+            isRight = true;
             if (currentNumber == 0)
             {
                 currentNumber = 9;
             }
             else
             {
-                currentNumber--;
+                currentNumber++;
             }
         }
     }

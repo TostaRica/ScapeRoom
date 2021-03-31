@@ -12,6 +12,7 @@ public class Puzzle_computer_sc : Puzzle_sc
     List<Message> messageList = new List<Message>();
     Decision treeRoot;
     Decision currentDecision;
+    int i = 0;
 
     // Start is called before the first frame update
     void Start()
