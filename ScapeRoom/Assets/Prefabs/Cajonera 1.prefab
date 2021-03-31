@@ -111,6 +111,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4086068883437103791}
+  - component: {fileID: 731044423503245788}
+  - component: {fileID: 3863898123998411672}
   m_Layer: 0
   m_Name: Cajonera 1
   m_TagString: Untagged
@@ -127,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 3746839501272248341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 2.6, y: 2.6, z: 2.6}
   m_Children:
   - {fileID: 5177290295817721292}
   - {fileID: 1125179546368452983}
@@ -135,6 +137,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731044423503245788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746839501272248341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8891840effa75e544b309998dfb99c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Una Cajonera
+  nameObject: Una Cajonera Cojonera
+--- !u!65 &3863898123998411672
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746839501272248341}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5636439992567382457
 GameObject:
   m_ObjectHideFlags: 0

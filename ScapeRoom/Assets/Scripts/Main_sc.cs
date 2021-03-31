@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Main_sc : MonoBehaviour
 {
-
-    public const string codeRadio = "Code1";
-
-    private static Dictionary<string, bool> inventory = new Dictionary<string, bool>();
-    private static Dictionary<string, string> keys = new Dictionary<string, string>();
+    private static Dictionary<string, bool> inventory;
+    private static Dictionary<string, string> keys;
 
     // Start is called before the first frame update
-    private void Awake()
+    void Start()
     {
-       //room1
-        inventory["Battery"] = false;
+        inventory = new Dictionary<string, bool>();
+        keys = new Dictionary<string, string>();
+        //room1
+        inventory["batteries"] = true;
         inventory["blueliquid"] = false;
         inventory["key1"] = false;
-        keys[codeRadio] = "root";
-       //room2
+        keys["Code1"] = "root";
+        //room2
     }
-    
-    public static void SetKey(string name, string value) {
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+    public static void SetKey(string name, string value)
+    {
         keys[name] = value;
     }
     public static void SetInventoryItem(string name, bool value)
@@ -36,6 +40,4 @@ public class Main_sc : MonoBehaviour
     {
         return inventory[name];
     }
-
-
 }
