@@ -100,47 +100,47 @@ public class InspectRaycast : MonoBehaviour
                 //material.SetFloat("_OutlineThickness", 0.0f);
                 selected = null;
             }
-        }
 
-        if (onInspect)
-        {
-            if (goTag == GoTag.Interactive)
+            if (onInspect)
             {
-                Cursor.lockState = CursorLockMode.None;
-                if (inspected.GetComponent<Interactive_keyobject>() != null)
+                if (goTag == GoTag.Interactive)
                 {
-                    inspected.GetComponent<Interactive_keyobject>().tryInteract();
+                    Cursor.lockState = CursorLockMode.None;
+                    if (inspected.GetComponent<Interactive_keyobject>() != null)
+                    {
+                        inspected.GetComponent<Interactive_keyobject>().tryInteract();
+                    }
+                }
+                else
+                {
+                    inspected.transform.position = Vector3.Lerp(inspected.transform.position, playerSocket.position, 0.2f);
+                    Vector3 rotation = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 125f;
+                    playerSocket.Rotate(rotation);
                 }
             }
-            else
-            {
-                inspected.transform.position = Vector3.Lerp(inspected.transform.position, playerSocket.position, 0.2f);
-                Vector3 rotation = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 125f;
-                playerSocket.Rotate(rotation);
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && onInspect)
-        {
-            if (goTag == GoTag.Collectable)
+            if (Input.GetKeyDown(KeyCode.Mouse1) && onInspect)
             {
-                Main_sc.SetInventoryItem(inspected.name, true);
-                inspected.SetActive(false);
-                depthOfField.active = false;
-                playerScript.ResumePlayerController();
+                if (goTag == GoTag.Collectable)
+                {
+                    Main_sc.SetInventoryItem(inspected.name, true);
+                    inspected.SetActive(false);
+                    depthOfField.active = false;
+                    playerScript.ResumePlayerController();
+                }
+                else if (goTag == GoTag.Selectable)
+                {
+                    StartCoroutine(dropItem());
+                }
+                else if (goTag == GoTag.Interactive)
+                {
+                    mainCamera.enabled = true;
+                    secondCamera.enabled = false;
+                    playerScript.ResumePlayerController();
+                }
+                Cursor.lockState = CursorLockMode.Locked;
+                onInspect = false;
             }
-            else if (goTag == GoTag.Selectable)
-            {
-                StartCoroutine(dropItem());
-            }
-            else if (goTag == GoTag.Interactive)
-            {
-                mainCamera.enabled = true;
-                secondCamera.enabled = false;
-                playerScript.ResumePlayerController();
-            }
-            Cursor.lockState = CursorLockMode.Locked;
-            onInspect = false;
         }
     }
 

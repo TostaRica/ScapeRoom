@@ -34,7 +34,7 @@ public class Main_sc : MonoBehaviour
     }
     public static bool GetInventoryItem(string name)
     {
-       return inventory[name];
+        return inventory[name];
     }
 
 

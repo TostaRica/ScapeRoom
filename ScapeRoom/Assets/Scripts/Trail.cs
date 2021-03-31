@@ -7,7 +7,7 @@ public class Trail : MonoBehaviour
     public Animation animator;
     public float trailSpeed;
     public float speed;
-    private float timeToReturn = 0.8f;
+    private float timeToReturn = 0.2f;
     public float currentTime;
     public GameObject trail;
     // Start is called before the first frame update
@@ -22,13 +22,12 @@ public class Trail : MonoBehaviour
     {
         if (currentTime > 0)
         {
-            Debug.Log(currentTime);
             currentTime -= Time.deltaTime;
         }
         else
         {
             trail.GetComponent<TrailRenderer>().Clear();
-            trail.GetComponent<TrailRenderer>().enabled = true;
+            //trail.GetComponent<TrailRenderer>().enabled = true;
             beatDone = false;
         }
     }
@@ -45,12 +44,14 @@ public class Trail : MonoBehaviour
     {
         if (other.gameObject.CompareTag("RightWall"))
         {
+            Debug.Log("Dreta");
             trail.GetComponent<TrailRenderer>().enabled = false;
             beatDone = true;
             currentTime = timeToReturn;
         }
         if (other.gameObject.CompareTag("LeftWall"))
         {
+            Debug.Log("esquerra");
             trail.GetComponent<TrailRenderer>().Clear();
             trail.GetComponent<TrailRenderer>().enabled = true;
         }
