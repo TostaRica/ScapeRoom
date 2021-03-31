@@ -40,4 +40,5 @@ public class Main_sc : MonoBehaviour
        return inventory[name];
     }
 
+
 }
