@@ -162,4 +162,7 @@ public class InspectRaycast : MonoBehaviour
         playerScript.ResumePlayerController();
         depthOfField.active = false;
     }
+    public void setOnInspect(bool inspect) {
+        onInspect = inspect;
+    }
 }
