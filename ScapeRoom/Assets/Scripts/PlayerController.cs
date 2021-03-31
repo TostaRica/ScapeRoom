@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
     private Rigidbody m_rigidbody;
 
     public float yaw;
@@ -37,35 +36,11 @@ public class PlayerController : MonoBehaviour
 
         transform.eulerAngles = playerRotation;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (ObjectHasClicked())
-            {
-                //gameManager.GetComponent<GameManager>().GoToInspector();
-                return;
-            }
-        }
         if (Input.GetMouseButton(0))
         {
             Vector3 direction = Camera.main.transform.forward;
             direction.y = 0;
             transform.position += direction * SpeedWalk * Time.deltaTime;
         }
-    }
-
-    bool ObjectHasClicked()
-    {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.collider != null)
-            {
-                hit.collider.enabled = false;
-                //gameManager.GetComponent<GameManager>().GetObjectToInspect(hit.collider.gameObject);
-                return true;
-            }
-        }
-        return false;
     }
 }

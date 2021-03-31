@@ -36,9 +36,9 @@ public class InspectRaycast : MonoBehaviour
         if (Physics.Raycast(transform.position, forward, out hit, maxDistance) && !onInspect)
         {
             collectable = hit.collider.gameObject.CompareTag(collectableTag);
-            if (collectable) 
-            { 
-                goCollectable = hit.collider.gameObject; 
+            if (collectable)
+            {
+                goCollectable = hit.collider.gameObject;
             }
 
             if (hit.collider.gameObject.CompareTag(selectableTag) || collectable)
@@ -48,7 +48,8 @@ public class InspectRaycast : MonoBehaviour
                 material.SetFloat("_OutlineThickness", 0.03f);
                 material.SetColor("_OutlineColor", outlineColor);
 
-                if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
                     inspected = hit.collider.gameObject;
                     inspected.GetComponent<Collider>().isTrigger = true;
                     originalPosition = hit.transform.position;
@@ -56,9 +57,7 @@ public class InspectRaycast : MonoBehaviour
                     onInspect = true;
                     depthOfField.active = true;
                     StartCoroutine(pickupItem());
-
                 }
-
             }
         }
         else
@@ -79,7 +78,6 @@ public class InspectRaycast : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && onInspect)
         {
-           
             if (collectable)
             {
                 Main_sc.SetInventoryItem(goCollectable.name, true);
@@ -88,7 +86,6 @@ public class InspectRaycast : MonoBehaviour
             StartCoroutine(dropItem());
             onInspect = false;
         }
-
     }
 
     IEnumerator pickupItem()

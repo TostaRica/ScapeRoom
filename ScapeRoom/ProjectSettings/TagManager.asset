@@ -9,6 +9,8 @@ TagManager:
   - LeftWall
   - Point
   - Collectable
+  - Door
+  - infoObject
   layers:
   - Default
   - TransparentFX
