@@ -7,6 +7,7 @@ public class KeyboardRay : MonoBehaviour
     [SerializeField] private float maxDistance = 2f;
     [SerializeField] private Camera main;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private InspectRaycast InspectRaycast;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class KeyboardRay : MonoBehaviour
                         main.enabled = true;
                         GetComponent<Camera>().enabled = false;
                         playerController.ResumePlayerController();
-
+                        //InspectRaycast.setOnInspect(false);
                     }
                 }
             }
