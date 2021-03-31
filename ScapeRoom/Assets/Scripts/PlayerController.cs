@@ -53,12 +53,11 @@ public class PlayerController : MonoBehaviour
     public void StopPlayerController()
     {
         isPlayerActive = false;
-        //transform.GetChild(0).GetComponent<Camera>().enabled = false;
     }
 
     public void ResumePlayerController()
     {
         isPlayerActive = true;
-        //transform.GetChild(0).GetComponent<Camera>().enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

@@ -25,10 +25,7 @@ public class Puzzle_computer_sc : Puzzle_sc
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            CheckDecision(inputField.text);
-        }
+
     }
 
     public override void Activate()
