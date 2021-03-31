@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Puzzle_computer_sc : Puzzle_sc
 {
     [SerializeField] private GameObject yourText;
@@ -9,22 +10,21 @@ public class Puzzle_computer_sc : Puzzle_sc
     [SerializeField] private GameObject chatPanel;
     [SerializeField] private InputField inputField;
 
-    List<Message> messageList = new List<Message>();
-    Decision treeRoot;
-    Decision currentDecision;
-    string code1;
+    private List<Message> messageList = new List<Message>();
+    private Decision treeRoot;
+    private Decision currentDecision;
+    private string code1;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         InitFirstCodeDialog();
         CheckDecision("");
         code1 = "";
-
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -34,7 +34,7 @@ public class Puzzle_computer_sc : Puzzle_sc
             //SendMessageToChat("091", false);
             //SendMessageToChat("oh, okay you are also locked in here right? ", true);
             //SendMessageToChat("1", false);
-            code1 = Main_sc.GetKey("code1");
+            code1 = Main_sc.GetKey("Code1");
             CheckDecision(inputField.text);
         }
     }
@@ -61,15 +61,14 @@ public class Puzzle_computer_sc : Puzzle_sc
 
     public void SendMessageToChat(string text, bool stranger)
     {
-
         Message newMessage = new Message();
         newMessage.text = text;
         GameObject newText = (stranger) ? Instantiate(strangerText, chatPanel.transform) : Instantiate(yourText, chatPanel.transform);
         newMessage.textObject = newText.GetComponent<Text>();
         newMessage.textObject.text = ((stranger) ? "<stranger> " : "<you> ") + newMessage.text;
         messageList.Add(newMessage);
-
     }
+
     public void CheckDecision(string code)
     {
         if (code != "")
@@ -78,9 +77,9 @@ public class Puzzle_computer_sc : Puzzle_sc
             inputField.text = "";
         }
         StartCoroutine(MakeDecision(2, code));
-
     }
-    IEnumerator MakeDecision(int seconds, string code)
+
+    private IEnumerator MakeDecision(int seconds, string code)
     {
         yield return new WaitForSeconds(seconds);
         if (currentDecision.code == code)
@@ -92,8 +91,8 @@ public class Puzzle_computer_sc : Puzzle_sc
         {
             SendMessageToChat(currentDecision.badAnswerd, true);
         }
-
     }
+
     public void InitFirstCodeDialog()
     {
         treeRoot = new Decision();
@@ -115,13 +114,13 @@ public class Puzzle_computer_sc : Puzzle_sc
         dec0.nextStep = dec1;
     }
 
-
     [System.Serializable]
     public class Message
     {
         public string text;
         public Text textObject;
     }
+
     [System.Serializable]
     public class Decision
     {

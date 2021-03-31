@@ -12,15 +12,16 @@ public class RadioController : MonoBehaviour
     public float pitch;
     public float markerSpeed;
     private bool active;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         frequency = 93.0f;
         active = false;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (active)
         {
@@ -33,14 +34,17 @@ public class RadioController : MonoBehaviour
             }
         }
     }
+
     public void SetActivate(bool _activate)
     {
         active = _activate;
     }
-    bool ButtonHasClicked()
+
+    private bool ButtonHasClicked()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider != null)
@@ -52,7 +56,7 @@ public class RadioController : MonoBehaviour
         return false;
     }
 
-    void MoveButton()
+    private void MoveButton()
     {
         float rotX = Input.GetAxis("Mouse Y") * 200 * Mathf.Deg2Rad;
         button.transform.Rotate(Vector3.right, rotX);
