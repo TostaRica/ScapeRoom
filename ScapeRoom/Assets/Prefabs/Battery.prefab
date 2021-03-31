@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7978464440560699951}
   - component: {fileID: 6419574188700059018}
   - component: {fileID: 9147408976385356096}
+  - component: {fileID: 2054454984667956978}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2054454984667956978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7346184147830083733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02404534, y: 0.023680044, z: 0.11696654}
+  m_Center: {x: 0, y: -4.656614e-10, z: 0.05848327}
