@@ -43,10 +43,11 @@ public class InspectRaycast : MonoBehaviour
 
             if (hit.collider.gameObject.CompareTag(selectableTag) || collectable)
             {
+                Debug.Log("dale");
                 hittedObject = hit.collider.gameObject;
-                material = hittedObject.GetComponent<Renderer>().material;
-                material.SetFloat("_OutlineThickness", 0.03f);
-                material.SetColor("_OutlineColor", outlineColor);
+                //material = hittedObject.GetComponent<Renderer>().material;
+                //material.SetFloat("_OutlineThickness", 0.03f);
+                //material.SetColor("_OutlineColor", outlineColor);
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
@@ -63,7 +64,7 @@ public class InspectRaycast : MonoBehaviour
             {
                 if (hittedObject != null)
                 {
-                    material.SetFloat("_OutlineThickness", 0.0f);
+                    //material.SetFloat("_OutlineThickness", 0.0f);
                     hittedObject = null;
                 }
             }
