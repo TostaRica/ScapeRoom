@@ -102,7 +102,7 @@ MonoBehaviour:
   isChanging: 0
   isRight: 0
   speedRotation: 36
-  audio: {fileID: 4800370554806339184}
+  m_audio: {fileID: 0}
 --- !u!1 &3021270592719451639
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 4800370554806339190}
   m_Layer: 0
   m_Name: CodeLock
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -679,7 +679,7 @@ Transform:
   m_GameObject: {fileID: 5647300936326396714}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.155, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.10000001, y: 0.09999999, z: 0.09474713}
   m_Children:
   - {fileID: 4213437394852388595}
   - {fileID: 1075481751797919954}
@@ -804,6 +804,7 @@ MonoBehaviour:
   - {fileID: 6733741459473430126}
   hasSolved: 0
   solveAnimation: {fileID: 4800370556525523049}
+  openBox: {fileID: 0}
   audioSolved: {fileID: 4800370556438673351}
 --- !u!1 &6733741459473430126
 GameObject:
@@ -907,7 +908,7 @@ MonoBehaviour:
   isChanging: 0
   isRight: 0
   speedRotation: 36
-  audio: {fileID: 4800370554806339184}
+  m_audio: {fileID: 0}
 --- !u!1 &9042103628741385128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,4 +1011,4 @@ MonoBehaviour:
   isChanging: 0
   isRight: 0
   speedRotation: 36
-  audio: {fileID: 4800370554806339184}
+  m_audio: {fileID: 0}
