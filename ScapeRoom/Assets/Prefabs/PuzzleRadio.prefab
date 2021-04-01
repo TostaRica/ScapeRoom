@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 1416862189536112738}
   - component: {fileID: 3459800213481384804}
   - component: {fileID: -2829276252882996558}
+  - component: {fileID: 15316448869674752}
   m_Layer: 0
   m_Name: PuzzleRadio
   m_TagString: Interactive
@@ -592,6 +593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marker: {fileID: 3218748419201366203}
   button: {fileID: 5713309782740960445}
+  msg: 
+  currentMsg: 
   frequency: 0
   fSpeed: 0.0045
   pitch: 0
@@ -674,3 +677,17 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &15316448869674752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955908245470461456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8891840effa75e544b309998dfb99c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
+  nameObject: 

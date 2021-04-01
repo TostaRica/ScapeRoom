@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RadioController : MonoBehaviour
 {
     public GameObject marker;
     public GameObject button;
+
+    public string msg;
+    public string currentMsg;
 
     public float frequency;
     public float fSpeed;
@@ -23,13 +27,19 @@ public class RadioController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (active)
+        if (ButtonHasClicked())
         {
             if (Input.GetMouseButton(0))
             {
-                if (ButtonHasClicked())
+                if (active)
                 {
+                    gameObject.GetComponent<ObjectInfo>().description = "";
+                    currentMsg = "";
                     MoveButton();
+                }
+                else
+                {
+                    gameObject.GetComponent<ObjectInfo>().description = msg;
                 }
             }
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -22,6 +23,8 @@ public class InspectRaycast : MonoBehaviour
     [SerializeField] private Material material;
     [SerializeField] private PostProcessVolume volume;
     [SerializeField] private DepthOfField depthOfField;
+
+    [SerializeField] private Text infoText;
 
     private Camera mainCamera;
     private Camera secondCamera;
@@ -64,6 +67,9 @@ public class InspectRaycast : MonoBehaviour
                     break;
                 case "InteractiveLock":
                     goTag = GoTag.InteractiveLock;
+                    break;
+                case "Untagged":
+                    infoText.text = "";
                     break;
             }
 
@@ -183,6 +189,11 @@ public class InspectRaycast : MonoBehaviour
         }
     }
 
+    public bool GetOnInspect()
+    {
+        return onInspect;
+    }
+    
     public void ReleaseInteractive()
     {
         mainCamera.enabled = true;
