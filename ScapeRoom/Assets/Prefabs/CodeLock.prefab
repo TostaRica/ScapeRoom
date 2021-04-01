@@ -97,6 +97,7 @@ MonoBehaviour:
   currentNumber: 0
   rightSize: {fileID: 4800370555826269659}
   leftSize: {fileID: 4800370555511102828}
+  lockerCamera: {fileID: 0}
   timeToChange: 1
   currentTime: 0
   isChanging: 0
@@ -678,7 +679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5647300936326396714}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.155, z: 0}
+  m_LocalPosition: {x: 0.0174, y: -0.155, z: 0.183}
   m_LocalScale: {x: 0.10000001, y: 0.09999999, z: 0.09474713}
   m_Children:
   - {fileID: 4213437394852388595}
@@ -806,6 +807,8 @@ MonoBehaviour:
   solveAnimation: {fileID: 4800370556525523049}
   openBox: {fileID: 0}
   audioSolved: {fileID: 4800370556438673351}
+  InspectRaycast: {fileID: 0}
+  onInspect: 0
 --- !u!1 &6733741459473430126
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +906,7 @@ MonoBehaviour:
   currentNumber: 0
   rightSize: {fileID: 4800370554665415856}
   leftSize: {fileID: 4800370556575298531}
+  lockerCamera: {fileID: 0}
   timeToChange: 1
   currentTime: 0
   isChanging: 0
@@ -1006,6 +1010,7 @@ MonoBehaviour:
   currentNumber: 0
   rightSize: {fileID: 4800370555732038325}
   leftSize: {fileID: 4800370556156718241}
+  lockerCamera: {fileID: 0}
   timeToChange: 1
   currentTime: 0
   isChanging: 0

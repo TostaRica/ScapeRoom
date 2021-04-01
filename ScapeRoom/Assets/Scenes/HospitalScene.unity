@@ -6949,10 +6949,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5458959388470490513, guid: cebaf316781b2094f929cebb5558e1b6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6127036162274983644, guid: cebaf316781b2094f929cebb5558e1b6,
         type: 3}
       propertyPath: m_Name
       value: MorseGuide
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127036162274983644, guid: cebaf316781b2094f929cebb5558e1b6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cebaf316781b2094f929cebb5558e1b6, type: 3}
@@ -8690,41 +8700,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorKey
       objectReference: {fileID: 0}
-    - target: {fileID: 887543829993470681, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Collectable
-      objectReference: {fileID: 0}
-    - target: {fileID: 3294034457019316393, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.03652749
-      objectReference: {fileID: 0}
-    - target: {fileID: 3294034457019316393, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.08992275
-      objectReference: {fileID: 0}
-    - target: {fileID: 3294034457019316393, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 0.0067233993
-      objectReference: {fileID: 0}
-    - target: {fileID: 3294034457019316393, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.015365192
-      objectReference: {fileID: 0}
-    - target: {fileID: 3294034457019316393, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.0075120237
-      objectReference: {fileID: 0}
-    - target: {fileID: 3294034457019316393, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.18260922
-      objectReference: {fileID: 0}
     - target: {fileID: 3739314923556743641, guid: 5557563d460ded449a0e48420f2c9a1b,
         type: 3}
       propertyPath: m_Name
@@ -8734,11 +8709,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739314923556743641, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Interactive
       objectReference: {fileID: 0}
     - target: {fileID: 3746839501272248341, guid: 5557563d460ded449a0e48420f2c9a1b,
         type: 3}
@@ -8845,16 +8815,6 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.0000000019498139
       objectReference: {fileID: 0}
-    - target: {fileID: 5977894968353724099, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0174
-      objectReference: {fileID: 0}
-    - target: {fileID: 5977894968353724099, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.183
-      objectReference: {fileID: 0}
     - target: {fileID: 6160650169060917396, guid: 5557563d460ded449a0e48420f2c9a1b,
         type: 3}
       propertyPath: m_PlayOnAwake
@@ -8899,21 +8859,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 6529385780429363401, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0016
-      objectReference: {fileID: 0}
-    - target: {fileID: 6529385780429363401, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.3083
-      objectReference: {fileID: 0}
-    - target: {fileID: 8311980217639000730, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5557563d460ded449a0e48420f2c9a1b, type: 3}
