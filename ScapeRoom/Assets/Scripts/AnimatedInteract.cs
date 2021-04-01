@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrawerInteract : MonoBehaviour
+public class AnimatedInteract : MonoBehaviour
 {
     [SerializeField] private float maxDistance = 5;
     [SerializeField] private PlayerController playerScript;
