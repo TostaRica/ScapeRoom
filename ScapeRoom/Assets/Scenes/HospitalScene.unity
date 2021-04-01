@@ -5782,6 +5782,11 @@ PrefabInstance:
       objectReference: {fileID: 827374835}
     - target: {fileID: 9064465083004082224, guid: d83d001dfcf478b4884f9ce8bba87eef,
         type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064465083004082224, guid: d83d001dfcf478b4884f9ce8bba87eef,
+        type: 3}
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
