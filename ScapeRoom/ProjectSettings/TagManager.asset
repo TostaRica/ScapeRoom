@@ -15,6 +15,7 @@ TagManager:
   - infoObject
   - KeyButton
   - Drawer
+  - Animated
   layers:
   - Default
   - TransparentFX
