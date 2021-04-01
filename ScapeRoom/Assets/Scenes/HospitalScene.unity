@@ -888,12 +888,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 511de1fb838471549bce41bf1dacb8a8, type: 3}
---- !u!1 &168505153 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6127036162274983644, guid: cebaf316781b2094f929cebb5558e1b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1198792198}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &188994466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6900,10 +6894,6 @@ PrefabInstance:
       propertyPath: m_Looping
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: morsePaper
-      value: 
-      objectReference: {fileID: 168505153}
     - target: {fileID: 5387693107784354628, guid: cebaf316781b2094f929cebb5558e1b6,
         type: 3}
       propertyPath: m_RootOrder
@@ -8037,6 +8027,16 @@ PrefabInstance:
       propertyPath: 
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6256344758636825603, guid: 4b00fcb693ace6447a8dc2c464e1b72b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.253
+      objectReference: {fileID: 0}
+    - target: {fileID: 6955908245470461456, guid: 4b00fcb693ace6447a8dc2c464e1b72b,
+        type: 3}
+      propertyPath: m_TagString
+      value: InteractiveLock
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b00fcb693ace6447a8dc2c464e1b72b, type: 3}
 --- !u!1001 &1444044409
@@ -8855,6 +8855,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.183
       objectReference: {fileID: 0}
+    - target: {fileID: 6160650169060917396, guid: 5557563d460ded449a0e48420f2c9a1b,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6160650169658175780, guid: 5557563d460ded449a0e48420f2c9a1b,
         type: 3}
       propertyPath: m_audio
@@ -9516,10 +9521,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: cameraTransform
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a359e38af1f2074c8de09ef069a0a68, type: 3}
