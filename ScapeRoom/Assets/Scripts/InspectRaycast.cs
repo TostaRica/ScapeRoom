@@ -69,9 +69,13 @@ public class InspectRaycast : MonoBehaviour
 
             if (goTag == GoTag.Selectable || goTag == GoTag.Collectable || goTag == GoTag.Interactive || goTag == GoTag.InteractiveLock)
             {
-                //material = hittedObject.GetComponent<Renderer>().material;
-                //material.SetFloat("_OutlineThickness", 0.03f);
-                //material.SetColor("_OutlineColor", outlineColor);
+                Renderer renderer = hit.collider.gameObject.GetComponent<Renderer>();
+                if (renderer != null) material = renderer.material;
+                if (material != null && material.shader.name == "Custom/OutlinedURP")
+                {
+                    material.SetFloat("_OutlineThickness", 0.03f);
+                    material.SetColor("_OutlineColor", outlineColor);
+                }
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
