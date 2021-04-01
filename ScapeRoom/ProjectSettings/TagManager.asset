@@ -16,6 +16,7 @@ TagManager:
   - KeyButton
   - Drawer
   - Animated
+  - InteractiveLock
   layers:
   - Default
   - TransparentFX

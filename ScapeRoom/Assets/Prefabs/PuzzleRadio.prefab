@@ -532,8 +532,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 95.51697, y: 60.26441, z: 31.961155}
-  m_Center: {x: 3.8454056, y: 3.0228794, z: 126.05307}
+  m_Size: {x: 91.464584, y: 60.26442, z: 30.647505}
+  m_Center: {x: -13.045495, y: 3.0228794, z: 161.39702}
 --- !u!20 &6725831256390280633
 Camera:
   m_ObjectHideFlags: 0
@@ -592,9 +592,9 @@ MonoBehaviour:
   marker: {fileID: 3218748419201366203}
   button: {fileID: 5713309782740960445}
   frequency: 0
-  fSpeed: 0
+  fSpeed: 0.0045
   pitch: 0
-  markerSpeed: 10
+  markerSpeed: 0.01
 --- !u!114 &1416862189536112738
 MonoBehaviour:
   m_ObjectHideFlags: 0

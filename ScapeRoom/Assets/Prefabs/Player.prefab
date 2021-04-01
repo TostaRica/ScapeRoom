@@ -128,8 +128,8 @@ GameObject:
   - component: {fileID: 9064465083758194314}
   - component: {fileID: 9064465083758194313}
   - component: {fileID: 9064465083758194312}
-  - component: {fileID: 9064465083758194315}
   - component: {fileID: 9064465083758194316}
+  - component: {fileID: 9064465083758194315}
   - component: {fileID: 7414872549827162048}
   - component: {fileID: 8764158428043915990}
   - component: {fileID: 7157740392088764366}
@@ -206,31 +206,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9064465083758194327}
   m_Enabled: 1
---- !u!114 &9064465083758194315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9064465083758194327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1c4d8c7769dd04399afeaf97276966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onInspect: 0
-  transitionSpeed: 0
-  maxDistance: 5
-  selected: {fileID: 0}
-  inspected: {fileID: 0}
-  playerScript: {fileID: 9064465083004082235}
-  playerSocket: {fileID: 9064465084117595341}
-  outlineColor: {r: 0.9811321, g: 0.9302243, b: 0.9302243, a: 1}
-  originalPosition: {x: 0, y: 0, z: 0}
-  originalRotation: {x: 0, y: 0, z: 0, w: 0}
-  material: {fileID: 0}
-  volume: {fileID: 0}
-  depthOfField: {fileID: 0}
 --- !u!114 &9064465083758194316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +266,30 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &9064465083758194315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064465083758194327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1c4d8c7769dd04399afeaf97276966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInspect: 0
+  transitionSpeed: 0
+  maxDistance: 5
+  inspected: {fileID: 0}
+  playerScript: {fileID: 9064465083004082235}
+  playerSocket: {fileID: 9064465084117595341}
+  outlineColor: {r: 0.9811321, g: 0.9302243, b: 0.9302243, a: 1}
+  originalPosition: {x: 0, y: 0, z: 0}
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
+  material: {fileID: 0}
+  volume: {fileID: 0}
+  depthOfField: {fileID: 0}
 --- !u!114 &7414872549827162048
 MonoBehaviour:
   m_ObjectHideFlags: 0
