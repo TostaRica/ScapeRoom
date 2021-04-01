@@ -42,7 +42,7 @@ public class Spin : MonoBehaviour
     bool ButtonHasClicked()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = transform.parent.parent.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider != null)

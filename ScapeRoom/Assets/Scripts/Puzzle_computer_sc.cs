@@ -117,12 +117,12 @@ public class Puzzle_computer_sc : Puzzle_sc
         dec1.script = "I'm guessing you can't type. I woke up trapped in here. It's some sort of document room full of papers marked with numbers. The door is locked with a 4 digit code.";
         dec1.anwser = null;
         dec1.transition = true;
-     
+
         Decision dec2 = new Decision();
         dec2.transition = true;
         dec2.script = "I assume you're trapped too. This seems like some psycho's messed up game. They want to toy with us.";
         dec2.anwser = null;
-       
+
         Decision dec3 = new Decision();
         dec3.script = "If you find a number tell me and I might find something useful. That can help us both get out of here.";
         dec3.anwser = "9423158760";
@@ -149,7 +149,7 @@ public class Puzzle_computer_sc : Puzzle_sc
         Decision dec8 = new Decision();
         dec8.script = "The door opened! Thank you, you saved my life. I hope you can escape too.";
         dec8.anwser = null;
-        
+
         //init
         treeRoot.goodStep = dec0;
         treeRoot.badStep = null;
@@ -163,22 +163,22 @@ public class Puzzle_computer_sc : Puzzle_sc
 
         dec1_b.goodStep = dec1;
         dec1_b.badStep = dec1_b;
-        
+
         dec2.goodStep = dec3;
         dec2.badStep = null;
-        
+
         dec3.goodStep = dec4;
         dec3.badStep = null;
-        
+
         dec4.goodStep = dec5;
         dec4.badStep = null;
-        
+
         dec5.goodStep = dec6;
         dec5.badStep = null;
-        
+
         dec6.goodStep = dec7;
         dec6.badStep = null;
-        
+
         dec7.goodStep = dec8;
         dec7.badStep = null;
 

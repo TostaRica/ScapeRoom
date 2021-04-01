@@ -11,17 +11,18 @@ public class Main_sc : MonoBehaviour
     private static Dictionary<string, string> keys = new Dictionary<string, string>();
 
     // Start is called before the first frame update
-    private void Awake()
+    void Start()
     {
-       //room1
+        //room1
         inventory["Battery"] = false;
-        inventory["blueliquid"] = false;
-        inventory["key1"] = false;
+        inventory["DoorKey"] = false;
         keys[codeRadio] = "root";
-       //room2
+        //room2
+        inventory["MorsePaper"] = false;
     }
-    
-    public static void SetKey(string name, string value) {
+
+    public static void SetKey(string name, string value)
+    {
         keys[name] = value;
     }
     public static void SetInventoryItem(string name, bool value)

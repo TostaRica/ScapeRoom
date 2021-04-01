@@ -12,6 +12,7 @@ TagManager:
   - Interactive
   - Door
   - KeyBoard
+  - infoObject
   layers:
   - Default
   - TransparentFX

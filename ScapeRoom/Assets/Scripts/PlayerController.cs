@@ -13,17 +13,18 @@ public class PlayerController : MonoBehaviour
     public float speedV;
 
     public float SpeedWalk;
+
     private bool isPlayerActive;
 
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
         isPlayerActive = true;
         m_rigidbody = transform.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
         if (isPlayerActive)
         {
@@ -60,4 +61,5 @@ public class PlayerController : MonoBehaviour
         isPlayerActive = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
 }

@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     public Animator doorAnimator;
     public bool isOpening = false;
-    public AudioSource audio;
+    public AudioSource m_audio;
     void Start()
     {
     }
@@ -23,7 +23,7 @@ public class Door : MonoBehaviour
 
     void OpenDoor()
     {
-        audio.Play();
+        m_audio.Play();
         doorAnimator.SetBool("Solved", true);
         float rotX = Input.GetAxis("Mouse X") * 10 * Mathf.Deg2Rad;
         this.transform.Rotate(Vector3.up, rotX);

@@ -7,7 +7,7 @@ public class Trail : MonoBehaviour
     public Animation animator;
     public float trailSpeed;
     public float speed;
-    private float timeToReturn = 0.2f;
+    private float timeToReturn = 0.5f;
     public float currentTime;
     public GameObject trail;
     // Start is called before the first frame update

@@ -68,11 +68,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6a908e16e6399e34eb4f1a4b4a83c3be, type: 2}
     - target: {fileID: 4977866183178412432, guid: 3f5b5f67ca299114d89e40930383f886,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977866183178412432, guid: 3f5b5f67ca299114d89e40930383f886,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -106,25 +101,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4977866183178412432, guid: 3f5b5f67ca299114d89e40930383f886,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977866183178412432, guid: 3f5b5f67ca299114d89e40930383f886,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977866183178412432, guid: 3f5b5f67ca299114d89e40930383f886,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5647300936326396714, guid: 3f5b5f67ca299114d89e40930383f886,
         type: 3}
       propertyPath: m_Name
-      value: CodeLock
+      value: CodeLock Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 6211817784292427301, guid: 3f5b5f67ca299114d89e40930383f886,
         type: 3}

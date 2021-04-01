@@ -8,7 +8,6 @@ public class DoorInteract : MonoBehaviour
     [SerializeField] private float maxDistance = 5;
     [SerializeField] private PlayerController playerScript;
 
-    bool collectable = false;
     // Start is called before the first frame update
     void Start()
     {
