@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 9114956349629921749}
   - component: {fileID: 8092878989939957195}
   - component: {fileID: 2070654678442443743}
+  - component: {fileID: 7860870185727399241}
+  - component: {fileID: 8355583345030740333}
   m_Layer: 0
   m_Name: Thumb
   m_TagString: Untagged
@@ -81,6 +83,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7860870185727399241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405289702296124997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3ed3264fb83e744a963ffab0dba9cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getObject: 0
+--- !u!114 &8355583345030740333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405289702296124997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405f9b113340cd442b69eab6fa40b24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredObject: Scissors
+  isPuzzle: 0
 --- !u!1 &2762157380356612010
 GameObject:
   m_ObjectHideFlags: 0

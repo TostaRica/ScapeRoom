@@ -19,6 +19,9 @@ public class Main_sc : MonoBehaviour
         keys[codeRadio] = "root";
         //room2
         inventory["MorsePaper"] = false;
+        inventory["Scissors"] = false;
+        inventory["Thumb"] = false;
+        inventory["BoxKey"] = false;
     }
 
     public static void SetKey(string name, string value)
