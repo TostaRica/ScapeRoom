@@ -51,13 +51,14 @@ public class Spin : MonoBehaviour
                 {
                     m_audio.Play();
                     RotateSpin(true);
+                    return true;
                 }
                 if (hit.transform.gameObject == leftSize)
                 {
                     m_audio.Play();
                     RotateSpin(false);
+                    return true;
                 }
-                return true;
             }
         }
         return false;
@@ -70,9 +71,9 @@ public class Spin : MonoBehaviour
         if (!toRight)
         {
             isRight = false;
-            if (currentNumber == 9)
+            if (currentNumber == 0)
             {
-                currentNumber = 0;
+                currentNumber = 9;
             }
             else
             {
@@ -82,9 +83,9 @@ public class Spin : MonoBehaviour
         else
         {
             isRight = true;
-            if (currentNumber == 0)
+            if (currentNumber == 9)
             {
-                currentNumber = 9;
+                currentNumber = 0;
             }
             else
             {

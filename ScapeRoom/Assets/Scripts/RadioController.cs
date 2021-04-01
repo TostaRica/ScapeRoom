@@ -71,6 +71,7 @@ public class RadioController : MonoBehaviour
         }
         if (((int)frequency % 2) == 0)
         {
+            Debug.Log((int)frequency);
             GetComponent<Puzzle_radio_sc>().SelectDial((int)frequency);
         }
     }

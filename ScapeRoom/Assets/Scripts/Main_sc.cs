@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Main_sc : MonoBehaviour
 {
-
     public const string codeRadio = "Code1";
 
     private static Dictionary<string, bool> inventory = new Dictionary<string, bool>();
@@ -15,8 +14,7 @@ public class Main_sc : MonoBehaviour
     {
         //room1
         inventory["Battery"] = false;
-        inventory["blueliquid"] = false;
-        inventory["key1"] = false;
+        inventory["DoorKey"] = false;
         keys[codeRadio] = "root";
         //room2
     }
@@ -37,6 +35,4 @@ public class Main_sc : MonoBehaviour
     {
         return inventory[name];
     }
-
-
 }
