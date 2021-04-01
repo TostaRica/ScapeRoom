@@ -6,43 +6,47 @@ public class Spin : MonoBehaviour
 {
     public int currentNumber = 0;
 
-    public GameObject rightSize;
-    public GameObject leftSize;
+    [SerializeField] private GameObject rightSize;
+    [SerializeField] private GameObject leftSize;
 
-    public float timeToChange = 1.0f;
-    public float currentTime;
-    public bool isChanging;
-    public bool isRight;
-    public float speedRotation;
+    [SerializeField] private Camera lockerCamera;
+
+    [SerializeField] private float timeToChange = 1.0f;
+    [SerializeField] private float currentTime;
+    [SerializeField] private bool isChanging;
+    [SerializeField] private bool isRight;
+    [SerializeField] private float speedRotation;
 
     public AudioSource m_audio;
 
-    public
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        DisableColliders();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (lockerCamera.isActiveAndEnabled)
         {
-            if (!isChanging)
+            if (Input.GetMouseButtonDown(0))
             {
-                ButtonHasClicked();
+                if (!isChanging)
+                {
+                    ButtonHasClicked();
+                }
             }
-        }
-        if (isChanging)
-        {
-            DoTransition();
+            if (isChanging)
+            {
+                DoTransition();
+            }
         }
     }
 
-    bool ButtonHasClicked()
+    private bool ButtonHasClicked()
     {
         RaycastHit hit;
-        Ray ray = transform.parent.parent.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        Ray ray = lockerCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider != null)
@@ -59,6 +63,7 @@ public class Spin : MonoBehaviour
                 }
                 return true;
             }
+            StartCoroutine(Sleep());
         }
         return false;
     }
@@ -70,9 +75,9 @@ public class Spin : MonoBehaviour
         if (!toRight)
         {
             isRight = false;
-            if (currentNumber == 9)
+            if (currentNumber == 0)
             {
-                currentNumber = 0;
+                currentNumber = 9;
             }
             else
             {
@@ -82,9 +87,9 @@ public class Spin : MonoBehaviour
         else
         {
             isRight = true;
-            if (currentNumber == 0)
+            if (currentNumber == 9)
             {
-                currentNumber = 9;
+                currentNumber = 0;
             }
             else
             {
@@ -93,7 +98,7 @@ public class Spin : MonoBehaviour
         }
     }
 
-    void DoTransition()
+    private void DoTransition()
     {
         if (currentTime > 0)
         {
@@ -112,4 +117,22 @@ public class Spin : MonoBehaviour
             isChanging = false;
         }
     }
+
+    public void EnableColliders()
+    {
+        rightSize.SetActive(true);
+        leftSize.SetActive(true);
+    }
+
+    public void DisableColliders()
+    {
+        rightSize.SetActive(false);
+        leftSize.SetActive(false);
+    }
+
+    private IEnumerator Sleep()
+    {
+        yield return new WaitForSeconds(0.05f);
+    }
+
 }

@@ -5,8 +5,6 @@ using UnityEngine;
 public class KeyboardRay : MonoBehaviour
 {
     [SerializeField] private float maxDistance = 2f;
-    [SerializeField] private Camera main;
-    [SerializeField] private PlayerController playerController;
     [SerializeField] private InspectRaycast InspectRaycast;
 
     public bool onInspect = false;
@@ -20,7 +18,6 @@ public class KeyboardRay : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
         Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
 
         if (onInspect)

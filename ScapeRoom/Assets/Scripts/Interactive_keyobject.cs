@@ -18,7 +18,7 @@ public class Interactive_keyobject : MonoBehaviour
     void Update()
     {
     }
-    void Interact() 
+    bool Interact() 
     {
         isUnlocked = Main_sc.GetInventoryItem(requiredObject);
         if (isUnlocked) {
@@ -30,14 +30,18 @@ public class Interactive_keyobject : MonoBehaviour
             {
                 GetComponent<Open_object_sc>().Open();
             }
-           
+           return true;
         }
+        return false;
     }
     //borrar en cuanto este hecha la parte de la interactuar
-    public void tryInteract() 
+    public bool tryInteract() 
     {
         if (!isUnlocked && Input.GetMouseButtonDown(0)) {
-            Interact();
-        }    
+            return Interact();
+        }
+
+        return false;
+
     }
 }

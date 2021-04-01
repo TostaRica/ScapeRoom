@@ -27,5 +27,6 @@ public class Door : MonoBehaviour
         doorAnimator.SetBool("Solved", true);
         float rotX = Input.GetAxis("Mouse X") * 10 * Mathf.Deg2Rad;
         this.transform.Rotate(Vector3.up, rotX);
+        isOpening = false;
     }
 }

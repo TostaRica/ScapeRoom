@@ -13,6 +13,9 @@ TagManager:
   - Door
   - KeyBoard
   - infoObject
+  - KeyButton
+  - InteractiveLock
+  - Drawer
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ public class Main_sc : MonoBehaviour
 {
 
     public const string codeRadio = "Code1";
+    public const string doorKey = "DoorKey";
 
     private static Dictionary<string, bool> inventory = new Dictionary<string, bool>();
     private static Dictionary<string, string> keys = new Dictionary<string, string>();
@@ -15,8 +16,7 @@ public class Main_sc : MonoBehaviour
     {
         //room1
         inventory["Battery"] = false;
-        inventory["blueliquid"] = false;
-        inventory["key1"] = false;
+        inventory[doorKey] = false;
         keys[codeRadio] = "root";
         //room2
     }

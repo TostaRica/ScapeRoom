@@ -10,9 +10,14 @@ public class Locker : Puzzle_sc
     public Animator solveAnimation;
     public Animator openBox;
     public AudioSource audioSolved;
+    [SerializeField] private InspectRaycast InspectRaycast;
+
+    public bool onInspect;
+
     // Start is called before the first frame update
     private void Start()
     {
+        onInspect = false;
     }
 
     // Update is called once per frame
@@ -28,16 +33,24 @@ public class Locker : Puzzle_sc
         openBox.SetBool("isSolved", true);
         hasSolved = true;
         audioSolved.Play();
-        //solveAnimation.Play();
     }
 
     void Update()
     {
+
         if ((isSolved()) && (!hasSolved))
         {
             Debug.Log(isSolved());
             OnResolve();
+            DisableSpins();
+            InspectRaycast.ReleaseInteractive();
             Deactivate();
+            GetComponentInParent<Collider>().enabled = false;
+        }
+
+        if (hasSolved)
+        {
+            DisableSpins();
         }
     }
 
@@ -52,4 +65,20 @@ public class Locker : Puzzle_sc
         }
         return true;
     }
+
+    public void EnableSpins()
+    {
+        foreach(GameObject spin in spins){
+            spin.GetComponent<Spin>().EnableColliders();
+        }
+    }
+
+    public void DisableSpins()
+    {
+        foreach (GameObject spin in spins)
+        {
+            spin.GetComponent<Spin>().EnableColliders();
+        }
+    }
+
 }
