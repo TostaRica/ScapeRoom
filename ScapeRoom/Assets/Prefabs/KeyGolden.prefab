@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7573563803674395268}
   - component: {fileID: 6824483622520343841}
   - component: {fileID: 8741936557752793579}
+  - component: {fileID: 5881166930044476545}
   m_Layer: 0
   m_Name: KeyGolden
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7084554240004495422}
   m_LocalRotation: {x: -0.2502216, y: 0.7390495, z: 0.46530783, w: 0.4179518}
-  m_LocalPosition: {x: -5.498, y: 1.119, z: -5.687}
+  m_LocalPosition: {x: 0.0014, y: 0.002, z: -5.687}
   m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5881166930044476545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7084554240004495422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.23940447, y: 0.1015314, z: 0.0073800846}
+  m_Center: {x: -0.06893632, y: 1.2840445e-10, z: 0.0036887166}

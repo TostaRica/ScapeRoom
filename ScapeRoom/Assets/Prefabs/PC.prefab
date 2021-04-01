@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2bafa3d65a315d94b80d7044ecce40b9, type: 2}
+  - {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2bafa3d65a315d94b80d7044ecce40b9, type: 2}
+  - {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -345,6 +345,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -439,6 +444,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -528,6 +538,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -612,6 +627,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -701,6 +721,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -790,6 +815,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -879,6 +909,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -968,6 +1003,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -1102,6 +1142,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ComputerScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 5814723210636129952, guid: 02b8254b25f54374bacc7cb6ff9b140e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02b8254b25f54374bacc7cb6ff9b140e, type: 3}
 --- !u!224 &3693643725740589073 stripped
@@ -1206,6 +1251,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -1390,6 +1440,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key
@@ -1479,6 +1534,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: computer
@@ -1563,6 +1623,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KeyBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6821979021608835303, guid: 9d8630bdf8fadb242871a074076a7e65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44de4ea52b7639e40ab250c8a0d5318a, type: 2}
     - target: {fileID: 9222383546604252545, guid: 9d8630bdf8fadb242871a074076a7e65,
         type: 3}
       propertyPath: key

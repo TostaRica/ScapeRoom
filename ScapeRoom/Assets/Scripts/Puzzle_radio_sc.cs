@@ -13,7 +13,6 @@ public class Puzzle_radio_sc : Puzzle_sc
     bool playCode;
     bool active;
     float dial;
-    
 
     public AudioSource rFrequency;
     public AudioClip[] audios;

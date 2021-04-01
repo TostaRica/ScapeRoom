@@ -10,7 +10,6 @@ public class InspectRaycast : MonoBehaviour
     [SerializeField] private float transitionSpeed;
     [SerializeField] private float maxDistance = 5;
 
-    [SerializeField] private GameObject selected;
     [SerializeField] private GameObject inspected;
 
     [SerializeField] private PlayerController playerScript;
@@ -26,10 +25,11 @@ public class InspectRaycast : MonoBehaviour
 
     private Camera mainCamera;
     private Camera secondCamera;
+    private bool onRelease = false;
 
     private enum GoTag
     {
-        Null, Selectable, Collectable, Interactive
+        Null, Selectable, Collectable, Interactive, InteractiveLock
     }
 
     private GoTag goTag;
@@ -37,6 +37,7 @@ public class InspectRaycast : MonoBehaviour
     private void Start()
     {
         volume.profile.TryGetSettings<DepthOfField>(out depthOfField);
+        depthOfField.active = false;
         goTag = GoTag.Null;
         mainCamera = GetComponent<Camera>();
     }
@@ -46,8 +47,8 @@ public class InspectRaycast : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
-
-        if (Physics.Raycast(transform.position, forward, out hit, maxDistance) && !onInspect)
+        bool hitObj = Physics.Raycast(transform.position, forward, out hit, maxDistance);
+        if (!onInspect && !onRelease && hitObj)
         {
             goTag = GoTag.Null;
             switch (hit.collider.gameObject.tag)
@@ -55,28 +56,32 @@ public class InspectRaycast : MonoBehaviour
                 case "Selectable":
                     goTag = GoTag.Selectable;
                     break;
-
                 case "Collectable":
                     goTag = GoTag.Collectable;
                     break;
-
                 case "Interactive":
                     goTag = GoTag.Interactive;
                     break;
+                case "InteractiveLock":
+                    goTag = GoTag.InteractiveLock;
+                    break;
             }
 
-            if (goTag == GoTag.Selectable || goTag == GoTag.Collectable || goTag == GoTag.Interactive)
+            if (goTag == GoTag.Selectable || goTag == GoTag.Collectable || goTag == GoTag.Interactive || goTag == GoTag.InteractiveLock)
             {
-                selected = hit.collider.gameObject;
-                //material = hittedObject.GetComponent<Renderer>().material;
-                //material.SetFloat("_OutlineThickness", 0.03f);
-                //material.SetColor("_OutlineColor", outlineColor);
+                Renderer renderer = hit.collider.gameObject.GetComponent<Renderer>();
+                if (renderer != null) material = renderer.material;
+                if (material != null && material.shader.name == "Custom/OutlinedURP")
+                {
+                    material.SetFloat("_OutlineThickness", 0.03f);
+                    material.SetColor("_OutlineColor", outlineColor);
+                }
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     onInspect = true;
-                    inspected = selected;
-                    if (goTag != GoTag.Interactive)
+                    inspected = hit.collider.gameObject;
+                    if (goTag != GoTag.Interactive && goTag != GoTag.InteractiveLock)
                     {
                         inspected.GetComponent<Collider>().isTrigger = true;
                         originalPosition = hit.transform.position;
@@ -96,27 +101,63 @@ public class InspectRaycast : MonoBehaviour
         }
         else
         {
-            if (selected != null)
-            {
-                //material.SetFloat("_OutlineThickness", 0.0f);
-                selected = null;
-            }
 
             if (onInspect)
             {
-                if (goTag == GoTag.Interactive)
+                if (goTag == GoTag.InteractiveLock)
                 {
+                    Ray ray = secondCamera.ScreenPointToRay(Input.mousePosition);
+                    bool hitInteractive = Physics.Raycast(ray, out hit, 1.5f);
                     Cursor.lockState = CursorLockMode.None;
-                    if (inspected.GetComponent<Interactive_keyobject>() != null)
+                    Interactive_keyobject interactive = inspected.GetComponent<Interactive_keyobject>();
+                    if (interactive != null)
                     {
-                        inspected.GetComponent<Interactive_keyobject>().tryInteract();
+                        interactive.tryInteract();
                     }
+
+                    if (Input.GetKeyDown(KeyCode.Mouse0) && !hitInteractive ) {
+                        ReleaseInteractive();
+                    }
+
                 }
-                else
+                else if (goTag == GoTag.Selectable || goTag == GoTag.Collectable)
                 {
                     inspected.transform.position = Vector3.Lerp(inspected.transform.position, playerSocket.position, 0.2f);
                     Vector3 rotation = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 125f;
                     playerSocket.Rotate(rotation);
+                }
+                else if(goTag == GoTag.Interactive)
+                {
+
+                    KeyboardRay keyboard = inspected.GetComponent<KeyboardRay>();
+
+                    if (keyboard != null) keyboard.onInspect = true;
+
+                    Locker locker = inspected.GetComponentInChildren<Locker>();
+
+                    if (locker != null)
+                    {
+                        if (!locker.hasSolved)
+                        {
+                            locker.onInspect = true;
+                            locker.EnableSpins();
+                            Cursor.lockState = CursorLockMode.None;
+                        }
+                    }
+                    Ray ray = secondCamera.ScreenPointToRay(Input.mousePosition);
+                    bool hitInteractive = Physics.Raycast(ray, out hit, 1.5f);
+                    if (Input.GetKeyDown(KeyCode.Mouse0) && !hitInteractive)
+                    {
+                        if (keyboard != null) keyboard.onInspect = true;
+                        if (!locker.hasSolved)
+                        {
+                            locker.onInspect = true;
+                            locker.EnableSpins();
+                            Cursor.lockState = CursorLockMode.None;
+                        }
+                        ReleaseInteractive();
+                    }
+
                 }
             }
 
@@ -128,21 +169,36 @@ public class InspectRaycast : MonoBehaviour
                     inspected.SetActive(false);
                     depthOfField.active = false;
                     playerScript.ResumePlayerController();
+                    Cursor.lockState = CursorLockMode.Locked;
+                    onInspect = false;
                 }
                 else if (goTag == GoTag.Selectable)
                 {
                     StartCoroutine(dropItem());
+                    Cursor.lockState = CursorLockMode.Locked;
+                    onInspect = false;
                 }
-                else if (goTag == GoTag.Interactive)
-                {
-                    mainCamera.enabled = true;
-                    secondCamera.enabled = false;
-                    playerScript.ResumePlayerController();
-                }
-                Cursor.lockState = CursorLockMode.Locked;
-                onInspect = false;
+
             }
         }
+    }
+
+    public void ReleaseInteractive()
+    {
+        mainCamera.enabled = true;
+        secondCamera.enabled = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        onInspect = false;
+        onRelease = true;
+        StartCoroutine(ReleaseRay());
+    }
+
+    private IEnumerator ReleaseRay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerScript.ResumePlayerController();
+        onRelease = false;
+
     }
 
     private IEnumerator pickupItem()
@@ -162,7 +218,8 @@ public class InspectRaycast : MonoBehaviour
         playerScript.ResumePlayerController();
         depthOfField.active = false;
     }
-    public void setOnInspect(bool inspect) {
+    public void setOnInspect(bool inspect)
+    {
         onInspect = inspect;
     }
 }
