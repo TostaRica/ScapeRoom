@@ -8,11 +8,6 @@ public class KeyboardRay : MonoBehaviour
     [SerializeField] private Camera main;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private InspectRaycast InspectRaycast;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -30,7 +25,6 @@ public class KeyboardRay : MonoBehaviour
                         main.enabled = true;
                         GetComponent<Camera>().enabled = false;
                         playerController.ResumePlayerController();
-                        //InspectRaycast.setOnInspect(false);
                     }
                 }
             }
