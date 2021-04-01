@@ -4475,6 +4475,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1226864203884013219, guid: b2eaffc614af9d34b80c59ed6378e447,
         type: 3}
+      propertyPath: m_Color.b
+      value: 0.31772873
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226864203884013219, guid: b2eaffc614af9d34b80c59ed6378e447,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.31772873
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226864203884013219, guid: b2eaffc614af9d34b80c59ed6378e447,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226864203884013219, guid: b2eaffc614af9d34b80c59ed6378e447,
+        type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 309c89dcbeebcf54e99c97e25ef2db4e,
@@ -5747,6 +5762,11 @@ PrefabInstance:
       objectReference: {fileID: 69346547}
     - target: {fileID: 7414872549827162048, guid: d83d001dfcf478b4884f9ce8bba87eef,
         type: 3}
+      propertyPath: msg
+      value: Locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414872549827162048, guid: d83d001dfcf478b4884f9ce8bba87eef,
+        type: 3}
       propertyPath: infoText
       value: 
       objectReference: {fileID: 827374835}
@@ -6471,7 +6491,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: b36bd1c50eac69e4a901c7fa58d247b7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6ab22ef338933824b9b2e81f08e1b70a, type: 2}
+      objectReference: {fileID: 2100000, guid: 2a76fb7deeecc134ba2d030b0ae37889, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b36bd1c50eac69e4a901c7fa58d247b7, type: 3}
 --- !u!1001 &1067420079
@@ -7377,11 +7397,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5458959388470490513, guid: cebaf316781b2094f929cebb5558e1b6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6127036162274983644, guid: cebaf316781b2094f929cebb5558e1b6,
         type: 3}
@@ -8485,6 +8500,11 @@ PrefabInstance:
       propertyPath: description
       value: May need a battery
       objectReference: {fileID: 0}
+    - target: {fileID: 1416862189536112737, guid: 4b00fcb693ace6447a8dc2c464e1b72b,
+        type: 3}
+      propertyPath: currentMsg
+      value: May need a battery
+      objectReference: {fileID: 0}
     - target: {fileID: 1649225116409243157, guid: 4b00fcb693ace6447a8dc2c464e1b72b,
         type: 3}
       propertyPath: 
@@ -9172,11 +9192,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: infoObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863898123998411672, guid: 5557563d460ded449a0e48420f2c9a1b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4086068883437103791, guid: 5557563d460ded449a0e48420f2c9a1b,
         type: 3}
@@ -11923,7 +11938,7 @@ PrefabInstance:
     - target: {fileID: 2670335331281902144, guid: 7c6f73b4c486e6c47a1c133c62bc38a7,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2670335331281902145, guid: 7c6f73b4c486e6c47a1c133c62bc38a7,
         type: 3}
