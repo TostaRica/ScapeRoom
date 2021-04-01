@@ -592,7 +592,7 @@ MonoBehaviour:
   marker: {fileID: 3218748419201366203}
   button: {fileID: 5713309782740960445}
   frequency: 0
-  fSpeed: 0.01
+  fSpeed: 0.0045
   pitch: 0
   markerSpeed: 0.01
 --- !u!114 &1416862189536112738

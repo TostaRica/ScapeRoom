@@ -100,10 +100,10 @@ public class InspectRaycast : MonoBehaviour
 
             if (onInspect)
             {
-                Ray ray = secondCamera.ScreenPointToRay(Input.mousePosition);
-                bool hitInteractive = Physics.Raycast(ray, out hit, 1.5f);
                 if (goTag == GoTag.InteractiveLock)
                 {
+                    Ray ray = secondCamera.ScreenPointToRay(Input.mousePosition);
+                    bool hitInteractive = Physics.Raycast(ray, out hit, 1.5f);
                     Cursor.lockState = CursorLockMode.None;
                     Interactive_keyobject interactive = inspected.GetComponent<Interactive_keyobject>();
                     if (interactive != null)
@@ -140,7 +140,8 @@ public class InspectRaycast : MonoBehaviour
                             Cursor.lockState = CursorLockMode.None;
                         }
                     }
-
+                    Ray ray = secondCamera.ScreenPointToRay(Input.mousePosition);
+                    bool hitInteractive = Physics.Raycast(ray, out hit, 1.5f);
                     if (Input.GetKeyDown(KeyCode.Mouse0) && !hitInteractive)
                     {
                         if (keyboard != null) keyboard.onInspect = true;
