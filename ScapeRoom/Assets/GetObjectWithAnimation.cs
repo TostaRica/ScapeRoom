@@ -9,7 +9,7 @@ public class GetObjectWithAnimation : Open_object_sc
     {
         //throw new System.NotImplementedException();
         // activar animacion
-        GetComponent<Animation>().Play();
+        GetComponent<Animator>().SetBool("Solved", true);
         if (getObject) Main_sc.SetInventoryItem(name, true);
 
     }

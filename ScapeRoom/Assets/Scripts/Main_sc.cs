@@ -14,6 +14,7 @@ public class Main_sc : MonoBehaviour
     void Start()
     {
         //room1
+        inventory["Hands"] = true;
         inventory["Battery"] = false;
         inventory["DoorKey"] = false;
         keys[codeRadio] = "root";
@@ -21,7 +22,7 @@ public class Main_sc : MonoBehaviour
         inventory["MorsePaper"] = false;
         inventory["Scissors"] = false;
         inventory["Thumb"] = false;
-        inventory["BoxKey"] = false;
+        inventory["KeySilver"] = true;
     }
 
     public static void SetKey(string name, string value)
