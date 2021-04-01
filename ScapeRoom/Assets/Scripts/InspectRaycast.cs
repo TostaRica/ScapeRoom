@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -22,6 +23,8 @@ public class InspectRaycast : MonoBehaviour
     [SerializeField] private Material material;
     [SerializeField] private PostProcessVolume volume;
     [SerializeField] private DepthOfField depthOfField;
+
+    public Text infoText;
 
     private Camera mainCamera;
     private Camera secondCamera;
@@ -56,14 +59,21 @@ public class InspectRaycast : MonoBehaviour
                 case "Selectable":
                     goTag = GoTag.Selectable;
                     break;
+
                 case "Collectable":
                     goTag = GoTag.Collectable;
                     break;
+
                 case "Interactive":
                     goTag = GoTag.Interactive;
                     break;
+
                 case "InteractiveLock":
                     goTag = GoTag.InteractiveLock;
+                    break;
+
+                case "Untagged":
+                    infoText.text = "";
                     break;
             }
 
@@ -97,7 +107,6 @@ public class InspectRaycast : MonoBehaviour
         }
         else
         {
-
             if (onInspect)
             {
                 if (goTag == GoTag.InteractiveLock)
@@ -111,10 +120,10 @@ public class InspectRaycast : MonoBehaviour
                         interactive.tryInteract();
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Mouse0) && !hitInteractive ) {
+                    if (Input.GetKeyDown(KeyCode.Mouse0) && !hitInteractive)
+                    {
                         ReleaseInteractive();
                     }
-
                 }
                 else if (goTag == GoTag.Selectable || goTag == GoTag.Collectable)
                 {
@@ -122,9 +131,8 @@ public class InspectRaycast : MonoBehaviour
                     Vector3 rotation = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 125f;
                     playerSocket.Rotate(rotation);
                 }
-                else if(goTag == GoTag.Interactive)
+                else if (goTag == GoTag.Interactive)
                 {
-
                     KeyboardRay keyboard = inspected.GetComponent<KeyboardRay>();
 
                     if (keyboard != null) keyboard.onInspect = true;
@@ -153,7 +161,6 @@ public class InspectRaycast : MonoBehaviour
                         }
                         ReleaseInteractive();
                     }
-
                 }
             }
 
@@ -174,7 +181,6 @@ public class InspectRaycast : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;
                     onInspect = false;
                 }
-
             }
         }
     }
@@ -194,7 +200,6 @@ public class InspectRaycast : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         playerScript.ResumePlayerController();
         onRelease = false;
-
     }
 
     private IEnumerator pickupItem()
@@ -217,5 +222,9 @@ public class InspectRaycast : MonoBehaviour
     public void setOnInspect(bool inspect)
     {
         onInspect = inspect;
+    }
+    public bool GetOnInspect()
+    {
+        return onInspect;
     }
 }

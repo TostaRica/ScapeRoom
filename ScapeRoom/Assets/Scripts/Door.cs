@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
     public Animator doorAnimator;
     public bool isOpening = false;
     public AudioSource m_audio;
+
     void Start()
     {
     }

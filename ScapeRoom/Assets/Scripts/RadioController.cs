@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RadioController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class RadioController : MonoBehaviour
     public float markerSpeed;
     private bool active;
 
+    public string message;
+    public string currentMessage;
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,13 +26,19 @@ public class RadioController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (active)
+        if (ButtonHasClicked())
         {
             if (Input.GetMouseButton(0))
             {
-                if (ButtonHasClicked())
+                if (active)
                 {
+                    gameObject.GetComponent<ObjectInfo>().description = "";
+                    currentMessage = "";
                     MoveButton();
+                }
+                else
+                {
+                    gameObject.GetComponent<ObjectInfo>().description = message;
                 }
             }
         }
@@ -71,6 +80,7 @@ public class RadioController : MonoBehaviour
         }
         if (((int)frequency % 2) == 0)
         {
+            Debug.Log((int)frequency);
             GetComponent<Puzzle_radio_sc>().SelectDial((int)frequency);
         }
     }

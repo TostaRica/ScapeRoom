@@ -37,7 +37,6 @@ public class Locker : Puzzle_sc
 
     void Update()
     {
-
         if ((isSolved()) && (!hasSolved))
         {
             Debug.Log(isSolved());
@@ -68,7 +67,8 @@ public class Locker : Puzzle_sc
 
     public void EnableSpins()
     {
-        foreach(GameObject spin in spins){
+        foreach (GameObject spin in spins)
+        {
             spin.GetComponent<Spin>().EnableColliders();
         }
     }
@@ -80,5 +80,4 @@ public class Locker : Puzzle_sc
             spin.GetComponent<Spin>().EnableColliders();
         }
     }
-
 }
