@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
         }
 
         m_rigidbody.AddForce(Vector3.down);
+        m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.centerOfMass = new Vector3(0, -10, 0);
 
     }
@@ -64,13 +65,11 @@ public class PlayerController : MonoBehaviour
     public void StopPlayerController()
     {
         isPlayerActive = false;
-        m_rigidbody.isKinematic = true;
     }
 
     public void ResumePlayerController()
     {
         isPlayerActive = true;
-        m_rigidbody.isKinematic = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 

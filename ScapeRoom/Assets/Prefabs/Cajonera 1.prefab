@@ -234,7 +234,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4086068883437103791}
-  - component: {fileID: 731044423503245788}
   - component: {fileID: 3863898123998411672}
   m_Layer: 0
   m_Name: Cajonera 1
@@ -260,20 +259,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &731044423503245788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3746839501272248341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8891840effa75e544b309998dfb99c6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Una Cajonera
-  nameObject: Una Cajonera Cojonera
 --- !u!65 &3863898123998411672
 BoxCollider:
   m_ObjectHideFlags: 0
