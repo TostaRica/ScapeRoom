@@ -8,6 +8,8 @@ public class DoorInteract : MonoBehaviour
     [SerializeField] private float maxDistance = 5;
     [SerializeField] private PlayerController playerScript;
 
+    private bool opened = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,7 @@ public class DoorInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Main_sc.GetInventoryItem("DoorKey"))
+        if (!opened && Main_sc.GetInventoryItem("DoorKey"))
         {
             RaycastHit hit;
             Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -28,12 +30,7 @@ public class DoorInteract : MonoBehaviour
                     {
                         //if i have the key()
                         hit.collider.gameObject.GetComponent<Door>().isOpening = true;
-                        playerScript.enabled = false;
-                    }
-                    if (Input.GetKeyUp(KeyCode.Mouse0))
-                    {
-                        playerScript.enabled = true;
-                        hit.collider.gameObject.GetComponent<Door>().isOpening = false;
+                        opened = true;
                     }
                 }
             }

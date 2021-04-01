@@ -49,16 +49,28 @@ public class PlayerController : MonoBehaviour
                 transform.position += direction * SpeedWalk * Time.deltaTime;
             }
         }
+
+        m_rigidbody.AddForce(Vector3.down);
+        m_rigidbody.centerOfMass = new Vector3(0, -10, 0);
+
+    }
+
+    
+    public void OnCollisionEnter()
+    {
+        m_rigidbody.AddForce(-transform.right * .2f * Time.deltaTime);
     }
 
     public void StopPlayerController()
     {
         isPlayerActive = false;
+        m_rigidbody.isKinematic = true;
     }
 
     public void ResumePlayerController()
     {
         isPlayerActive = true;
+        m_rigidbody.isKinematic = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
