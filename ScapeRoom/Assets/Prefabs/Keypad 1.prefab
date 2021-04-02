@@ -493,13 +493,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 5
-  password: 02000000050000000500000007000000
+  password: 0300000007000000060000000200000002000000
   codeEnter: 00000000000000000000000000000000
   clips:
   - {fileID: 8300000, guid: 4b3274777064e694fb43243c57b26d00, type: 3}
   - {fileID: 8300000, guid: 60ca0079294dded4b8d103d7f16a95d8, type: 3}
   - {fileID: 8300000, guid: 83de81bbc3088834aa8cce49e9b582e6, type: 3}
-  audio: {fileID: 9137046961893889059}
+  m_audio: {fileID: 9137046961893889059}
   numeroAmount: 0
 --- !u!1 &2244131908899232598
 GameObject:

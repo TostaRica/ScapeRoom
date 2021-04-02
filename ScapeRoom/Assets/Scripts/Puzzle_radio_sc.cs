@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -85,7 +86,7 @@ public class Puzzle_radio_sc : Puzzle_sc
         if (active) { 
             if (currentDial != dial)
             {
-                int i = (int)Random.Range(0.0f, 5.0f);
+                int i = (int)UnityEngine.Random.Range(0.0f, 5.0f);
                 rFrequency.clip = audios[i];
                 rFrequency.Play();
                 // play random sound

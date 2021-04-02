@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class AudioStep : MonoBehaviour
             if (currentTime < 0)
             {
                 currentTime = timeStep;
-                stepAudioSource.clip = audioSteps[Random.Range(0, audioSteps.Length)];
+                stepAudioSource.clip = audioSteps[UnityEngine.Random.Range(0, audioSteps.Length)];
                 stepAudioSource.Play();
             }
             else
